@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuha Biology Grade 11 Exam Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@300;400;600;700;800&display=swap');
+:root{--bg:#0d0f1a;--surface:#141726;--surface2:#1c2035;--border:#2a2f4a;--accent:#4f8ef7;--accent2:#a78bfa;--accent3:#34d399;--warn:#f59e0b;--danger:#f87171;--text:#e2e8f0;--muted:#94a3b8;--code-bg:#0a0c16;--leaf:#22c55e;}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:15px}
+.hero{background:linear-gradient(135deg,#0d0f1a 0%,#10261c 46%,#1a1040 100%);border-bottom:1px solid var(--border);padding:48px 32px 38px;text-align:center;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 24% 45%,rgba(52,211,153,.14) 0%,transparent 62%),radial-gradient(ellipse at 75% 45%,rgba(167,139,250,.12) 0%,transparent 60%)}.hero>*{position:relative}.hero-badge{display:inline-block;background:rgba(52,211,153,.14);border:1px solid rgba(52,211,153,.36);color:#86efac;font-size:11px;font-weight:800;letter-spacing:0;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:16px}.hero h1{font-size:clamp(28px,6vw,54px);font-weight:800;background:linear-gradient(135deg,#fff 28%,#86efac 62%,#c4b5fd 92%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}.hero p{color:var(--muted);font-size:14px;max-width:720px;margin:0 auto}.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}.tag{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--muted)}
+.bio-mark{width:150px;height:92px;margin:22px auto 0;position:relative}.cell{position:absolute;left:8px;top:8px;width:78px;height:78px;border:2px solid rgba(52,211,153,.45);border-radius:48% 52% 45% 55%;background:rgba(52,211,153,.08)}.cell:before{content:"";position:absolute;width:28px;height:28px;left:25px;top:24px;border-radius:50%;background:rgba(167,139,250,.26);border:1px solid rgba(196,181,253,.45)}.leaf{position:absolute;right:8px;top:15px;width:72px;height:48px;border-radius:100% 0 100% 0;background:linear-gradient(135deg,rgba(52,211,153,.7),rgba(79,142,247,.25));transform:rotate(-18deg);border:1px solid rgba(134,239,172,.5)}.leaf:before{content:"";position:absolute;left:9px;top:24px;width:55px;height:1px;background:rgba(255,255,255,.38);transform:rotate(-20deg)}
+.nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:4px;overflow-x:auto;position:sticky;top:0;z-index:100;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0;padding:12px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}.nav a:hover{color:var(--accent3);border-bottom-color:var(--accent3)}.container{max-width:1040px;margin:0 auto;padding:32px 24px 80px}.section{margin-bottom:48px;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}.section-header{display:flex;align-items:center;gap:14px;padding:20px 28px;border-bottom:1px solid var(--border);background:var(--surface2)}.section-num{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--accent3),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;color:#fff}.section-title{font-size:18px;font-weight:700;color:#fff}.section-body{padding:24px 28px}
+.concept{margin-bottom:20px;padding:16px 20px;background:var(--code-bg);border:1px solid var(--border);border-left:3px solid var(--accent3);border-radius:10px}.concept-q{font-weight:700;color:#6ee7b7;font-size:13px;margin-bottom:8px;display:flex;align-items:flex-start;gap:8px}.concept-q:before{content:"Q";background:var(--accent3);color:#062a1b;font-size:10px;font-weight:800;padding:1px 5px;border-radius:4px;flex-shrink:0;margin-top:2px}.concept-a{color:var(--text);font-size:14px}.callout{border-radius:10px;padding:14px 18px;margin:14px 0;font-size:14px;display:flex;gap:12px;align-items:flex-start}.callout-icon{font-size:12px;font-weight:800;flex-shrink:0;margin-top:1px}.callout.tip{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:#6ee7b7}.callout.warn{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:#fcd34d}.callout.info{background:rgba(79,142,247,.1);border:1px solid rgba(79,142,247,.3);color:#93c5fd}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}th{background:var(--surface2);color:#6ee7b7;font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border)}td{padding:9px 14px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}tr:last-child td{border-bottom:none}code{font-family:'JetBrains Mono',monospace;font-size:12px;background:rgba(79,142,247,.15);color:#93c5fd;padding:1px 6px;border-radius:4px}.pill{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;margin:2px}.pill-blue{background:rgba(79,142,247,.2);color:#93c5fd;border:1px solid rgba(79,142,247,.4)}.pill-green{background:rgba(52,211,153,.2);color:#6ee7b7;border:1px solid rgba(52,211,153,.4)}.pill-purple{background:rgba(167,139,250,.2);color:#c4b5fd;border:1px solid rgba(167,139,250,.4)}.pill-orange{background:rgba(245,158,11,.2);color:#fcd34d;border:1px solid rgba(245,158,11,.4)}h3{font-size:15px;font-weight:700;color:var(--accent2);margin:18px 0 10px}h4{font-size:13px;font-weight:700;color:var(--warn);margin:12px 0 6px;text-transform:uppercase;letter-spacing:0}ul,ol{padding-left:20px}li{margin:4px 0;font-size:14px}p{margin:8px 0;font-size:14px}strong{color:#fff}.divider{border:none;border-top:1px solid var(--border);margin:20px 0}.memory{background:linear-gradient(135deg,rgba(167,139,250,.1),rgba(52,211,153,.1));border:1px solid rgba(167,139,250,.3);border-radius:10px;padding:14px 18px;margin:12px 0;font-size:13.5px}.memory-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0;color:var(--accent2);margin-bottom:6px}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}.note-card{margin:14px 0;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--code-bg)}.note-title{display:flex;align-items:center;gap:10px;background:var(--surface2);padding:12px 16px;border-bottom:1px solid var(--border);font-weight:700;font-size:13.5px}.note-no{font-family:'JetBrains Mono',monospace;color:var(--accent3);font-size:11px}.note-body{padding:14px 18px}.note-body ul{padding-left:18px}.opening{font-size:14px;color:var(--text)}.muted{color:var(--muted)}@media(max-width:700px){.two-col{grid-template-columns:1fr}.section-header{padding:16px 18px}.section-body{padding:18px}.nav{padding:0 14px}.container{padding:24px 14px 64px}.bio-mark{transform:scale(.86)}}
+</style></head><body>
+<div class="hero"><div class="hero-badge">Built for Nuha</div><h1>Nuha's Biology Exam Guide</h1><p>A focused Grade 11 review for the last two chapters: Cell Biology and Energy Transformation.</p><div class="hero-tags"><span class="tag">Unit 4 Cell Biology</span><span class="tag">Unit 5 Energy Transformation</span><span class="tag">Exam Focus</span><span class="tag">Quick Revision</span></div><div class="bio-mark"><div class="cell"></div><div class="leaf"></div></div></div>
+<nav class="nav"><a href="#opening">Opening</a><a href="#unit4">Unit 4</a><a href="#unit5">Unit 5</a><a href="#practice">Practice</a><a href="#cheat">Cheat Sheet</a></nav><div class="container">
+<div class="section" id="opening"><div class="section-header"><div class="section-num">N</div><div class="section-title">Opening Note for Nuha</div></div><div class="section-body"><div class="callout tip"><span class="callout-icon">START</span><div class="opening"><strong>Nuha, this guide is for the final push.</strong> The exam is from the last two chapters, so everything here is trimmed toward what you need: the big ideas, the processes, the comparisons, and the questions that are most likely to test understanding.</div></div><div class="two-col"><div class="memory"><div class="memory-title">How to revise</div><p>First read the focus questions. Then review the tables. Last, use the textbook-note cards to fill in examples and details.</p></div><div class="memory"><div class="memory-title">What matters most</div><p>For Unit 4, master cell structures and transport. For Unit 5, master ATP, respiration, photosynthesis, and where each reaction happens.</p></div></div></div></div>
+<div class="section" id="unit4"><div class="section-header"><div class="section-num">4</div><div class="section-title">Unit 4: Cell Biology</div></div><div class="section-body"><div><span class="pill pill-green">Cell theory</span><span class="pill pill-blue">Membranes</span><span class="pill pill-purple">Transport</span><span class="pill pill-orange">Organelles</span></div><h3>Focus Questions</h3>
+<div class="concept"><div class="concept-q">What does cell theory say?</div><div class="concept-a">All living organisms are made of cells, cells are the basic unit of structure and function, and new cells come from pre-existing cells by division.</div></div>
+<div class="concept"><div class="concept-q">Why are microscopes important in cell biology?</div><div class="concept-a">Cells are too small to study with the naked eye, so microscopes made it possible to observe cells, organelles, and later the fine details of membranes.</div></div>
+<div class="concept"><div class="concept-q">What is the difference between prokaryotic and eukaryotic cells?</div><div class="concept-a">Prokaryotic cells are smaller and lack a true nucleus and membrane-bound organelles. Eukaryotic cells have a nucleus, organelles, and internal membrane systems.</div></div>
+<div class="concept"><div class="concept-q">Why does surface area to volume ratio matter?</div><div class="concept-a">As cells get larger, volume increases faster than surface area, making exchange of materials across the membrane less efficient.</div></div>
+<div class="concept"><div class="concept-q">What is the plasma membrane model?</div><div class="concept-a">The fluid mosaic model describes a phospholipid bilayer with proteins, cholesterol, glycolipids, and glycoproteins that control transport and cell communication.</div></div>
+<div class="concept"><div class="concept-q">What are passive and active transport?</div><div class="concept-a">Passive transport moves substances down gradients without ATP. Active transport moves substances against gradients using ATP and transport proteins.</div></div>
+<h3>Cell Structures to Remember</h3><table><tr><th>Structure</th><th>Main Function</th></tr>
+<tr><td><strong>Nucleus</strong></td><td>Contains genetic material and controls cell activities.</td></tr>
+<tr><td><strong>Nucleolus</strong></td><td>Makes ribosome components.</td></tr>
+<tr><td><strong>Ribosomes</strong></td><td>Site of protein synthesis.</td></tr>
+<tr><td><strong>Rough ER</strong></td><td>Transports and modifies proteins made by attached ribosomes.</td></tr>
+<tr><td><strong>Smooth ER</strong></td><td>Synthesises lipids and helps detoxification.</td></tr>
+<tr><td><strong>Golgi apparatus</strong></td><td>Modifies, packages, and secretes cell products.</td></tr>
+<tr><td><strong>Lysosomes</strong></td><td>Contain digestive enzymes for breaking down waste and engulfed material.</td></tr>
+<tr><td><strong>Mitochondria</strong></td><td>Site of aerobic respiration and ATP production.</td></tr>
+<tr><td><strong>Chloroplasts</strong></td><td>Site of photosynthesis in plant cells.</td></tr>
+<tr><td><strong>Cell wall</strong></td><td>Supports plant cells and prevents bursting in hypotonic solutions.</td></tr>
+<tr><td><strong>Plasma membrane</strong></td><td>Controls movement of substances into and out of cells.</td></tr>
+</table><div class="callout info"><span class="callout-icon">TIP</span><div>When revising cell biology, always connect structure to function. Exams love asking why a structure is useful, not only what it is called.</div></div><h3>Textbook Notes</h3>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 111</span><span>Cell biology</span></div><div class="note-body"><ul>
+<li>Unit 4</li>
+<li>Contents</li>
+<li>Section</li>
+<li>Learning competencies</li>
+<li>(\page 125)\</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 112</span><span>4.1 Cell theory</span></div><div class="note-body"><ul>
+<li>Today we take it for granted that living things are made of cells.</li>
+<li>Billions of cells in the case of human beings, just one cell in the case</li>
+<li>of organisms like amoeba. Figure 4.1 shows some of the difi\erent</li>
+<li>types of cells that make up our bodies.</li>
+<li>ere is only one cell in</li>
+<li>Amoeba</li>
+<li>and in</li>
+<li>Vorticella</li>
+<li>It seems strange that the idea of organisms being made from cells is</li>
+<li>a relatively recent idea. Only a few hundred years ago, cells had not</li>
+<li>been discoveredeir discovery had to wait for the development</li>
+<li>of reliable microscopes that could magnify sufl\ciently to show the</li>
+<li>cellular structure of living organisms. Many biologists and other</li>
+<li>scientists contributed to the discovery of cells and the statement</li>
+<li>of the very fi\first cell theorye timeline below shows some of the</li>
+<li>major contributors.</li>
+<li>Figure 4.1</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 113</span><span>1665</span></div><div class="note-body"><ul>
+<li>Robert Hooke, with one</li>
+<li>of the earliest compound</li>
+<li>microscopes, makes</li>
+<li>drawings of cork and sees</li>
+<li>tiny structures that he calls</li>
+<li>cells. However, although his</li>
+<li>microscope is a compound</li>
+<li>microscope, the lenses</li>
+<li>are not very good and</li>
+<li>magnifi\cations of more than</li>
+<li>30&#215;\ are very blurred and do</li>
+<li>not show much detail. Also,</li>
+<li>Hooke saw only dead cells.</li>
+<li>1674</li>
+<li>Anton van Leeuwenhoek sees living, moving unicellular</li>
+<li>organisms (\protoctistans)\ in a drop of water. He is using a</li>
+<li>simple microscope with only one lens. It is really little more</li>
+<li>than a magnifying glass with a mount for the specimens.</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 114</span><span>1824</span></div><div class="note-body"><ul>
+<li>Th\e French biologist Rene Dutrochet concludes that all</li>
+<li>organisms are composed of cells. Th\is follows many years</li>
+<li>work in which he also discovers:</li>
+<li>the stomata in the epidermis of leaves</li>
+<li>the process of osmosis</li>
+<li>chlorophyll is needed for photosynthesis to occur</li>
+<li>respiration occurs in both animals and plants</li>
+<li>In many ways, Dutrochet is the man who fi\first states the cell</li>
+<li>theory by recognising that all organisms are made of cells</li>
+<li>and thaall growth occurs because of the increase in volume</li>
+<li>of cells or by the addition of more little cells.</li>
+<li>1839</li>
+<li>Matthias Schleiden aneodor Schwann put forward the</li>
+<li>st clearly stated cell theory. It states that:</li>
+<li>the cell is the unit of structure, physiology and</li>
+<li>organisation in living things</li>
+<li>the cell retains a dual existence as:</li>
+<li>-\ a distinct entity, and</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 115</span><span>all cells come from pre-existing cells by division (\there is</span></div><div class="note-body"><ul>
+<li>no spontaneous generation of cells)\</li>
+<li>cells contain hereditary information which is passed</li>
+<li>from cell to cell during cell division</li>
+<li>all cells have basically the same chemical composition</li>
+<li>all energy \ow (\the metabolism and biochemistry of life)\</li>
+<li>occurs within cells</li>
+<li>Besides these major steps in the development of a cell theory, there</li>
+<li>have been other developments in the study of cell biology. Some of</li>
+<li>these are listed below.</li>
+<li>Table 4.1</li>
+<li>Key events in cell biology</li>
+<li>Event</li>
+<li>1595</li>
+<li>1626</li>
+<li>1665</li>
+<li>1674</li>
+<li>1833</li>
+<li>1839</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 116</span><span>Figure 4.9</span></div><div class="note-body"><ul>
+<li>Size and scale in living</li>
+<li>things</li>
+<li>What units shall we measure cells in?</li>
+<li>Again, it all depends on which cells, but fi\first we should</li>
+<li>understand which units are available and which ones</li>
+<li>would be convenient to use. We could measure cells in</li>
+<li>metres, but the size of a red blood cell in metres would</li>
+<li>be approximately 0.000007 m.</li>
+<li>All those 0&#39;\s are very confusing and we do not easily</li>
+<li>work with such small numbers. So we use other, smaller</li>
+<li>units to measure the size of cells and molecules. Th\ese</li>
+<li>smaller units give us numbers that are more convenient</li>
+<li>to work with. Th\ere are three smaller units commonly</li>
+<li>used:</li>
+<li>millimetres (\mm)\ -\</li>
+<li>1/1000 of a metre</li>
+<li>micrometres (\\m)\ -\</li>
+<li>1/1000 of a millimetre, and</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 117</span><span>Activity 4.2: How can we find out how big cells are?</span></div><div class="note-body"><ul>
+<li>calibrating</li>
+<li>Figure 4.11</li>
+<li>An eyepiece graticule</li>
+<li>and stage micrometer</li>
+<li>Figure 4.12</li>
+<li>Estimating theld</li>
+<li>of view</li>
+<li>eyepiece graticule</li>
+<li>scale</li>
+<li>stage</li>
+<li>micrometer</li>
+<li>mm</li>
+<li>therefore each small division = 100</li>
+<li>Hhow you can make a rough estimate of cell size</li>
+<li>Its a way of using the same principle as the</li>
+<li>micrometer. It isnt as accurate, but its a lot</li>
+<li>cheaper and easier.</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 118</span><span>When a cell gets bigger, all its dimensions change. It is easy to be</span></div><div class="note-body"><ul>
+<li>tricked into thinking that when a cell doubles all its dimensions it</li>
+<li>is twice as big. But, in fact, there is now eight times more cell as a</li>
+<li>result! Th\is is most easily explained if we pretend that our cell is a</li>
+<li>cube, but the same principles hold true for other shapes also.</li>
+<li>Look at fi\gure 4.13. It shows three cubic &#39;\cellsf difi\erent sizes.</li>
+<li>e linear dimensions double from the fi\first cell to the second and</li>
+<li>double again from the second cell to the third. But the surface area</li>
+<li>and volume of the cell doesnt double.</li>
+<li>ere are six sides to a cube. We calculate the area of each side by</li>
+<li>multiplying length by breadth. In the case of the fi\first cell, this is 1</li>
+<li>arbitrary unit</li>
+<li>(\a.u.)\ &#215;\ 1 a.u., so the area of one side is 1 a.u.</li>
+<li>volume of a cube is length &#215;\ breadth &#215;\ height. In this case 1 a.u. &#215;\ 1</li>
+<li>a.u. &#215;\ 1 a.u. So the volume of the fi\first cell is 1 a.u.</li>
+<li>e ratio of the</li>
+<li>surface area to the volume is 6:1.</li>
+<li>So what about the second cell? Th\e linear dimensions have doubled,</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 122</span><span>Figure 4.15</span></div><div class="note-body"><ul>
+<li>A generalised animal cell</li>
+<li>Figure 4.16</li>
+<li>A generalised plant cell</li>
+<li>ese are clearly much more complex cells than the prokaryotic</li>
+<li>cell. What is really difi\erent about them is that there are many more</li>
+<li>erent individual structures, called</li>
+<li>organelles</li>
+<li>, in the cell. Also,</li>
+<li>there are many more membranes in the cell. Some of these form</li>
+<li>the complex membrane system that is found throughout the cell</li>
+<li>he</li>
+<li>endoplasmic</li>
+<li>reticulum</li>
+<li>. In addition to these, several of the</li>
+<li>organelles are surrounded by membranes. Th\ese are the:</li>
+<li>nucleus</li>
+<li>mitochondria</li>
+<li>chloroplasts (\if present)\</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 123</span><span>Figure 4.17</span></div><div class="note-body"><ul>
+<li>e origin of eukaryotic cells</li>
+<li>KEY WORDS</li>
+<li>heterotrophic</li>
+<li>these cells</li>
+<li>must absorb organic molecules</li>
+<li>&#39;\ready-made&#39;\</li>
+<li>autotrophic</li>
+<li>autotrophic cells</li>
+<li>are capable of making their</li>
+<li>own organic molecules from</li>
+<li>inorganic ones, usually by</li>
+<li>photosynthesis</li>
+<li>endosymbiont theory</li>
+<li>theory</li>
+<li>of the origin of eukaryotic cells</li>
+<li>Which organisms have eukaryotic cells and</li>
+<li>which have prokaryotic cells?</li>
+<li>Figure 4.18 shows the main groups of living</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 126</span><span>e membrane that surrounds and encloses a cell is sometimes</span></div><div class="note-body"><ul>
+<li>called the</li>
+<li>cell surface membrane</li>
+<li>, but most biologists now refer</li>
+<li>to it as the</li>
+<li>plasma</li>
+<li>membrane</li>
+<li>. Although this membrane has little</li>
+<li>mechanical strength to support the cell, it plays a crucial role in:</li>
+<li>controlling what enters and leaves the cell; the plasma membrane</li>
+<li>moves substances in and out of the cell by:</li>
+<li>-\ simple difi\usion</li>
+<li>-\ facilitated difi\usion</li>
+<li>-\ osmosis</li>
+<li>-\ active transport</li>
+<li>-\ endocytosis</li>
+<li>-\ exocytosis</li>
+<li>cell signalling; various molecules in the membrane allow the</li>
+<li>cell to be recognised by hormones and the immune system (\in</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 127</span><span>Year</span></div><div class="note-body"><ul>
+<li>Event</li>
+<li>1972</li>
+<li>The DavsonDanielli model</li>
+<li>In 1935, Davson and Danielli knew that both proteins and</li>
+<li>phospholipids were involved in the structure of plasma membranes.</li>
+<li>Without any direct observational evidence to assist them (\the very</li>
+<li>st electron microscopes were only just being built and they could</li>
+<li>not reveal membrane structure)\ Davson and Danielli suggested a</li>
+<li>kind osandwichf protein and phospholipid.</li>
+<li>s was based on what they knew of the proportions of the two</li>
+<li>substances in the membranee protein was to form the bread</li>
+<li>of the sandwich with the phospholipid forming the filling. In 1954</li>
+<li>they proposed a revised model in which they included protein-lined</li>
+<li>pores. Figure 4.20 shows the Davsoanielli models of 1935 and</li>
+<li>1954.</li>
+<li>As more and more evidence accumulated about how molecules</li>
+<li>moved across membranes, it became clear that the Davsoanielli</li>
+<li>model could not adequately explain all the new evidencee</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 128</span><span>As our understanding of processes that occur at the plasma</span></div><div class="note-body"><ul>
+<li>membrane has increased and we have learned more of cell</li>
+<li>structure and function, the fluid mosaic model has become more</li>
+<li>sophisticated. Our current idea of membrane structure still assumes</li>
+<li>the fluid-mosaic nature, but there is now much more detail to the</li>
+<li>model, as fi\gure 4.22 shows.</li>
+<li>e key features of the model as we currently understand it are:</li>
+<li>e phospholipid bilayer as the basis for the membrane</li>
+<li>Integral proteins</li>
+<li>(\also known as intrinsic proteins and trans-</li>
+<li>membrane proteins)\ that span the membrane. Some of these</li>
+<li>proteins play an important role in moving substances across</li>
+<li>the membraneere are three main types of these transport</li>
+<li>proteins:</li>
+<li>channel proteins</li>
+<li>-\ these proteins have a channel through</li>
+<li>them along which a specifi\c ion can pass; there are difi\erent</li>
+<li>channel proteins for difi\erent ions</li>
+<li>carrier proteins</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 131</span><span>Figure 4.24</span></div><div class="note-body"><ul>
+<li>e change in concentrations as</li>
+<li>diusion proceeds</li>
+<li>Figure 4.25</li>
+<li>e change in concentrations across a</li>
+<li>membrane as diusion proceeds</li>
+<li>e rate at which difi\usion across a membrane takes place is</li>
+<li>uenced by:</li>
+<li>the concentration gradient -\ a bigger difi\erence in concentration</li>
+<li>results in faster difi\usion than a smaller gradient</li>
+<li>the thickness of the membrane -\ as all plasma membranes are</li>
+<li>the same thickness, this is not really an issue when considering</li>
+<li>usion into and out of cells, but for other situations where</li>
+<li>particles must cross some kind of barrier, a shorter distance</li>
+<li>results in faster difi\usion</li>
+<li>the surface area of the membrane -\ clearly if there is more</li>
+<li>membrane where difi\usion can take place, difi\usion will happen</li>
+<li>faster</li>
+<li>ese features are all related in an equation called Ficks law of</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 132</span><span>However, also note that whilst the ions can simply move straight</span></div><div class="note-body"><ul>
+<li>through the ion pore of a channel protein, the carrier protein</li>
+<li>must undergo a conformational change (\change in shape)\ to move</li>
+<li>particles through the membrane.</li>
+<li>e rate of facilitated difi\usion is aected by the same factors that</li>
+<li>aect simple difi\usion with the exception that it is not the actual</li>
+<li>surface area of the membrane that determines the rate, but the</li>
+<li>number of carrier proteins (\or channel proteins)\ present.</li>
+<li>Osmosis</li>
+<li>Osmosis is the process by which water moves across a partially</li>
+<li>permeable membrane. It is, efi\ectively, the difi\usion of water.</li>
+<li>However, we do not refer to the concentration of water molecules,</li>
+<li>but to</li>
+<li>water potential</li>
+<li>. We can say that osmosis is the movement of</li>
+<li>water from a system with a high water potential to a system with a</li>
+<li>low water potential across a partially permeable membrane.</li>
+<li>e symbol for water potential is the Greek letter \ (\psi)\. Water</li>
+<li>potential is measured in units of pressure -\ pascals (\Pa)\, kilopascals</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 134</span><span>Animal cells</span></div><div class="note-body"><ul>
+<li>Figure 4.28 shows what happens when red blood</li>
+<li>cells are placed in difi\erent solutions.</li>
+<li>In the hypertonic solution, the cells lose water by</li>
+<li>osmosis and shrink.</li>
+<li>In the hypotonic solution, the cells gain water by</li>
+<li>osmosis and swelle pressure will eventually</li>
+<li>bufirst the weak plasma membrane: this is called</li>
+<li>haemolysis.</li>
+<li>ere is no change in the isotonic solution.</li>
+<li>Plant cells</li>
+<li>Figure 4.29 shows what happens when plant cells are placed in</li>
+<li>erent solutions.</li>
+<li>In the hypertonic solution, the cytoplasm of the cells loses water</li>
+<li>by osmosis and shrinks. Because of this, there is no pressure from</li>
+<li>the cytoplasm on the cell walle cell is said to baccid. If the</li>
+<li>cytoplasm shrinks too much, it loses contact with the cell wall and</li>
+<li>we say the cell has been plasmolysed.</li>
+<li>In the hypotonic solution, the cells gain water by osmosis and swell.</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 135</span><span>Method</span></div><div class="note-body"><ul>
+<li>Activity 4.9: Finding the water potential of potato cells</li>
+<li>Tube</li>
+<li>Amount of</li>
+<li>sucrose/cm</li>
+<li>water/cm</li>
+<li>Final</li>
+<li>concentration/M</li>
+<li>1.0</li>
+<li>0.8</li>
+<li>0.6</li>
+<li>0.4</li>
+<li>0.2</li>
+<li>0.0</li>
+<li>Solution</li>
+<li>Mass</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 136</span><span>Active processes</span></div><div class="note-body"><ul>
+<li>Active transport</li>
+<li>Sometimes, substances must be moved against a concentration</li>
+<li>gradient -\ from a low concentration to a higher one. Th\is cannot</li>
+<li>happen by difi\usion, since it would tend to concentrate particles</li>
+<li>rather than spread them out. It can only happen if metabolic energy</li>
+<li>is used to drive the process. In living organisms, this energy is</li>
+<li>released from the ATP produced in respiration. When the energy</li>
+<li>is released from ATP, it is broken down into ADP and P</li>
+<li>(\inorganic</li>
+<li>phosphate)\. Th\e proteins used to actively transport substances</li>
+<li>across plasma membranes are called pumps.</li>
+<li>Endocytosis</li>
+<li>In this process, large particles are engulfed by a cellere are</li>
+<li>several ways in which it can happen, but, essentially, part of the</li>
+<li>plasma membrane surrounds the particles to form a vesicle which</li>
+<li>is then processed by the cell. Figure 4.33 shows three difi\erent types</li>
+<li>of endocytosis. All of them require ATP to move the membrane</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 137</span><span>Exocytosis</span></div><div class="note-body"><ul>
+<li>In this process, substances are moved from</li>
+<li>the inside to the outside of the cell in what</li>
+<li>is, efi\ectively, the reverse of endocytosis. It is</li>
+<li>the process by which enzymes and hormones</li>
+<li>are secreted. Again, ATP is used to alter the</li>
+<li>confi\guration of the membrane.</li>
+<li>Figure 4.34</li>
+<li>Process</li>
+<li>InTh\uence of</li>
+<li>concentration</li>
+<li>Requirement</li>
+<li>for ATP?</li>
+<li>Type of particles</li>
+<li>moved</li>
+<li>Transport</li>
+<li>proteins needed?</li>
+<li>Table 4.5</li>
+<li>e transport processes compared</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 138</span><span>In this section, we will discuss the other organelles in outline only.</span></div><div class="note-body"><ul>
+<li>We shall discover their functions in more detail as we discuss the</li>
+<li>metabolic processes they carry out.</li>
+<li>The nucleus</li>
+<li>e nucleus typically occupies about 10% of the volume of a cell. It</li>
+<li>has several components:</li>
+<li>e nuclear envelope is a double membrane that surrounds the</li>
+<li>nucleus. Th\ere are many nuclear pores, which allow the passage</li>
+<li>of some molecules between the nucleus and the cytoplasm.</li>
+<li>e nucleolus is an organelle within the nucleus. It is not</li>
+<li>membrane-bound. Its function is to synthesise the components</li>
+<li>of ribosomes, which then pass through the nuclear pores into the</li>
+<li>cytoplasm.</li>
+<li>called histones. For most of the cell cycle, the chromatin fi\bres</li>
+<li>are loosely dispersed throughout the nucleus. Just before a</li>
+<li>cell is about to divide, the chromatin condenses into distinct,</li>
+<li>recognisable structures called chromosomes.</li>
+<li>Mitochondria</li>
+<li>Mitochondria are the sites of most of the reactions of aerobic</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 139</span><span>Ribosomes</span></div><div class="note-body"><ul>
+<li>Ribosomes are the sites of protein synthesis. Th\ey can be found free</li>
+<li>in the cytoplasm, but are also bound to the membrane system of</li>
+<li>the endoplasmic reticulum, forming rough endoplasmic reticulum.</li>
+<li>and protein. Th\e subunits are manufactured in the nucleolus.</li>
+<li>ey leave the nucleus through nuclear pores and combine in the</li>
+<li>cytoplasm.</li>
+<li>Endoplasmic reticulum</li>
+<li>Endoplasmic reticulum (\ER)\ is a membrane system found</li>
+<li>throughout the cytoplasm of eukaryotic cells. Th\ere are two types of</li>
+<li>endoplasmic reticulum:</li>
+<li>Rough ER</li>
+<li>has ribosomes on its surface and is responsible for</li>
+<li>the manufacture and transport of proteins. Protein molecules</li>
+<li>manufactured by the ribosomes pass through small pores into</li>
+<li>the lumen (\inner space)\ of the ERey are then moved in a</li>
+<li>vesicle to the Golgi body. Rough ER is extensive in cells that</li>
+<li>manufacture a lot of protein, such as cells that manufacture</li>
+<li>enzymes to be secreted into the lumen of the intestine.</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 140</span><span>Lysosomes</span></div><div class="note-body"><ul>
+<li>Lysosomes have no specialised internal structure and are</li>
+<li>surrounded by a single membraneey are formed in the</li>
+<li>Golgi apparatus and contain digestive enzymes that break down</li>
+<li>cellular waste and debris. Lysosomes are particularly abundant in</li>
+<li>phagocytic white blood cells. Here, enzymes from the lysosomes</li>
+<li>digest foreign cells that have been engulfed.</li>
+<li>e organelles we have described so far are found in all eukaryotic</li>
+<li>cells. However, not all eukaryotic cells are the same. In particular,</li>
+<li>there are important difi\erences between plant and animal cells.</li>
+<li>Organelles found in plant cells</li>
+<li>Cell wall</li>
+<li>We have studied the molecular structure of the cell wall in unit 2.</li>
+<li>e criss-cross arrangement of cellulosbres in the cell wall gives</li>
+<li>it both strength and elasticity. Because there are larggapsn a</li>
+<li>molecular scale)\ between thbres, the cell wall is freely permeable.</li>
+<li>Vacuole</li>
+<li>e vacuole in a plant cell is a \uid-fi\lled sac that stores a range of</li>
+<li>solutes. It is also important in maintaining the turgidity, or turgor,</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 141</span><span>e cell sample is stored in a suspension that is:</span></div><div class="note-body"><ul>
+<li>bered -\ the neutral pH prevents damage to the structure of</li>
+<li>proteins, including enzymes</li>
+<li>isotonic (\of equal water potential)\ -\ this prevents osmotic</li>
+<li>water gain or loss by the organelles; gaining too much water</li>
+<li>could rupture the organelles</li>
+<li>cool -\ this reduces the overall activity of enzymes released later</li>
+<li>in the procedure</li>
+<li>e cells are homogenised in a blender anltered to remove</li>
+<li>debris.</li>
+<li>e homogenised sample is placed in an ultracentrifuge and</li>
+<li>spun at low speede nuclei settle out, forming a pellet.</li>
+<li>e supernatant (\the suspension containing the remaining</li>
+<li>organelles)\ is spun at a higher speed -\</li>
+<li>chloroplasts settle out (\if plant tissue is</li>
+<li>used)\.</li>
+<li>e supernatant is spun at a higher</li>
+<li>speed still -\ mitochondria settle out.</li>
+<li>e process is repeated at ever higher</li>
+</ul></div></div>
+</div></div>
+<div class="section" id="unit5"><div class="section-header"><div class="section-num" style="background:linear-gradient(135deg,#4f8ef7,#a78bfa)">5</div><div class="section-title">Unit 5: Energy Transformation</div></div><div class="section-body"><div><span class="pill pill-green">ATP</span><span class="pill pill-blue">Respiration</span><span class="pill pill-purple">Photosynthesis</span><span class="pill pill-orange">C3, C4, CAM</span></div><h3>Focus Questions</h3>
+<div class="concept"><div class="concept-q">Why is ATP called the energy currency of the cell?</div><div class="concept-a">ATP stores energy in phosphate bonds and releases small, usable amounts of energy quickly when hydrolysed to ADP and inorganic phosphate.</div></div>
+<div class="concept"><div class="concept-q">Where do the stages of aerobic respiration occur?</div><div class="concept-a">Glycolysis occurs in the cytoplasm; the link reaction and Krebs cycle occur in the mitochondrial matrix; electron transport and chemiosmosis occur on the inner mitochondrial membrane.</div></div>
+<div class="concept"><div class="concept-q">Why is oxygen important in respiration?</div><div class="concept-a">Oxygen is the terminal electron acceptor in the electron transport chain. Without oxygen, the chain stops and ATP production falls sharply.</div></div>
+<div class="concept"><div class="concept-q">What is fermentation?</div><div class="concept-a">Fermentation allows glycolysis to continue without oxygen by regenerating NAD, producing lactate in animals or ethanol and carbon dioxide in yeast.</div></div>
+<div class="concept"><div class="concept-q">What happens in light-dependent photosynthesis?</div><div class="concept-a">Light excites electrons in chlorophyll, water is split, ATP is formed, and reduced NADP is produced for the Calvin cycle.</div></div>
+<div class="concept"><div class="concept-q">What happens in the Calvin cycle?</div><div class="concept-a">Carbon dioxide is fixed to RuBP, reduced using ATP and reduced NADP, and converted into carbohydrate while RuBP is regenerated.</div></div>
+<h3>Process Map</h3><table><tr><th>Process</th><th>Location</th><th>What to Remember</th></tr>
+<tr><td><strong>Glycolysis</strong></td><td>Cytoplasm</td><td>Glucose -&gt; pyruvate; small ATP yield; reduced NAD formed.</td></tr>
+<tr><td><strong>Link reaction</strong></td><td>Mitochondrial matrix</td><td>Pyruvate -&gt; acetyl CoA; carbon dioxide released; reduced NAD formed.</td></tr>
+<tr><td><strong>Krebs cycle</strong></td><td>Mitochondrial matrix</td><td>Acetyl CoA fully oxidised; CO2, ATP, reduced NAD and reduced FAD produced.</td></tr>
+<tr><td><strong>Electron transport chain</strong></td><td>Inner mitochondrial membrane</td><td>Electrons pass along carriers; protons pumped; oxygen forms water.</td></tr>
+<tr><td><strong>Chemiosmosis</strong></td><td>Inner mitochondrial membrane</td><td>Protons flow through ATP synthase to make ATP.</td></tr>
+<tr><td><strong>Light-dependent reactions</strong></td><td>Thylakoid membranes</td><td>Light energy makes ATP and reduced NADP; water is split.</td></tr>
+<tr><td><strong>Calvin cycle</strong></td><td>Stroma</td><td>Carbon dioxide is fixed and reduced to form carbohydrate.</td></tr>
+</table><div class="callout warn"><span class="callout-icon">WATCH</span><div>Do not mix up mitochondria and chloroplast locations: matrix and inner membrane for respiration; thylakoid membrane and stroma for photosynthesis.</div></div><h3>Textbook Notes</h3>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 151</span><span>Energy transformation</span></div><div class="note-body"><ul>
+<li>Unit 5</li>
+<li>Contents</li>
+<li>Section</li>
+<li>Learning competencies</li>
+<li>energy in</li>
+<li>(\page 170)\</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 152</span><span>5.1 Respiration</span></div><div class="note-body"><ul>
+<li>e full name for ATP is</li>
+<li>denosine</li>
+<li>ri-</li>
+<li>hosphate -\</li>
+<li>but you will not need to use this name, all biologists</li>
+<li>always refer to it as ATP. So why bother telling you?</li>
+<li>Well, it helps to understand about the structure of the</li>
+<li>molecule.</li>
+<li>In unit 2, we learned that nucleic acids are built from</li>
+<li>nucleotides, like the one shown in Th\gure 5.1.</li>
+<li>All nucleotides contain:</li>
+<li>a nitrogenous base (\this one contains adenine)\</li>
+<li>a pentose sugar</li>
+<li>a phosphate group</li>
+<li>e ATP molecule is based on this nucleotide. ATP is sometimes</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 153</span><span>Figure 5.3</span></div><div class="note-body"><ul>
+<li>e inter-conversion</li>
+<li>of ADP and ATP</li>
+<li>OC</li>
+<li>OH</li>
+<li>CH</li>
+<li>P+</li>
+<li>energy from</li>
+<li>sunlight or</li>
+<li>from food</li>
+<li>energy available</li>
+<li>for cellular work</li>
+<li>and for chemical</li>
+<li>synthesis</li>
+<li>AT</li>
+<li>ADP</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 154</span><span>ATP is adapted to this role because it:</span></div><div class="note-body"><ul>
+<li>releases energy in relatively small amounts that are closely</li>
+<li>matched to the amounts of energy required in many biological</li>
+<li>processes occurring inside cells</li>
+<li>releases energy in a single-step hydrolysis reaction, so the</li>
+<li>energy can be released quickly</li>
+<li>is able to move around the cell easily, but cannot escape from</li>
+<li>the cell</li>
+<li>e following processes are examples of processes that require</li>
+<li>energy from ATP:</li>
+<li>the synthesis of macromolecules -\ such as proteins</li>
+<li>active transport across a plasma membrane (\see unit 4 for</li>
+<li>details)\</li>
+<li>muscle contraction</li>
+<li>conduction of nerve impulses</li>
+<li>the initial reactions of respiration (\the later reactions release</li>
+<li>energy from glucose to form more ATP)\</li>
+<li>Almost all the ATP produced in cells is formed in the same way.</li>
+<li>It obviously involves ADP and P</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 156</span><span>e Th\first stage, glycolysis, takes place in the cytoplasm. It does not</span></div><div class="note-body"><ul>
+<li>take place inside the mitochondria because:</li>
+<li>the glucose molecule cannot difi\use through the mitochondrial</li>
+<li>membranes (\it is a medium-sized molecule and is not lipid</li>
+<li>soluble)\, and</li>
+<li>there are no carrier proteins to transport the glucose molecule</li>
+<li>across the membranes.</li>
+<li>Glycolysis (\literallglucose splittingesults in glucose being</li>
+<li>converted into a smaller molecule containing only three carbon</li>
+<li>atoms -\ pyruvate. Pyruvate can enter the mitochondria and so all</li>
+<li>the other stages take place inside the mitochondrion. Figure 5.8</li>
+<li>shows where the stages of aerobic respiration take place.</li>
+<li>In the link reaction, pyruvate is then converted into a two-carbon</li>
+<li>compound that enters into a cycle of reactions -\ the Krebs</li>
+<li>cycle (\named After Sir Hans Krebs who discovered the reactions</li>
+<li>involved)\. Both these stages take place in the fluid</li>
+<li>matrix</li>
+<li>of a</li>
+<li>mitochondrion.</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 157</span><span>In all three stages (\glycolysis, the link reaction and Krebs cycle)\,</span></div><div class="note-body"><ul>
+<li>hydrogen atoms are transferred to NAD to produce reduced NAD.</li>
+<li>e Krebs cycle also produces reduced FADese molecules</li>
+<li>later release their hydrogen atoms as protons (\hydrogen ions)\ and</li>
+<li>electrons in the Th\nal stage of aerobic respiration. fi\e electrons pass</li>
+<li>along a series of molecules called an</li>
+<li>electron</li>
+<li>transport</li>
+<li>chain</li>
+<li>e protons are used in the chemiosmotic synthesis of ATP as they</li>
+<li>spin the rotor of the ATP synthase enzyme located in the inner</li>
+<li>membrane of the mitochondrion. Eventually, the protons (\hydrogen</li>
+<li>ions)\ and electrons will combine with oxygen to form water.</li>
+<li>Without the oxygen, this cannot happen as there is nothing at the</li>
+<li>end of the electron transport chain to accept the electrons. fi\e</li>
+<li>electron transport chain grinds to a halt and so does the production</li>
+<li>of ATP by ATP synthase. Because it is oxygen-dependent, this</li>
+<li>method of production of ATP is called</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 158</span><span>What happens in the link reaction?</span></div><div class="note-body"><ul>
+<li>Both of these stages of respiration take place in the fluid matrix of</li>
+<li>the mitochondrion.</li>
+<li>In the link reaction, a molecule of pyruvate reacts with a molecule</li>
+<li>of</li>
+<li>coenzyme A</li>
+<li>(\CoA)\ to form a molecule of</li>
+<li>acetyl</li>
+<li>(\acetyl CoA)\. In the reaction:</li>
+<li>hydrogen is lost and reduced NAD is formed; removing</li>
+<li>hydrogen from a molecule is</li>
+<li>dehydrogenation</li>
+<li>a carbon atom is lost to form carbon dioxide; removing carbon</li>
+<li>from a molecule is</li>
+<li>decarboxylation</li>
+<li>e acetyl coenzyme A then reacts with a C4 molecule (\a molecule</li>
+<li>containing four carbon atoms)\ called oxaloacetate. In the reaction,</li>
+<li>acetyl CoA breaks down into:</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 159</span><span>in several reactions in the cycle, reduced NAD</span></div><div class="note-body"><ul>
+<li>is produced and, in just one reaction, reduced</li>
+<li>FAD is produced</li>
+<li>e reactions of the Krebs cycle are summarised in</li>
+<li>Th\gure 5.12.</li>
+<li>What happens in the electron transport chain and</li>
+<li>chemiosmosis?</li>
+<li>e electron transport chain and chemiosmosis</li>
+<li>together make up the process of oxidative</li>
+<li>phosphorylation.</li>
+<li>Whereas the reactions of the link reaction and</li>
+<li>Krebs cycle take place in the fluid matrix of the</li>
+<li>mitochondrion, the reactions of the electron</li>
+<li>transport chain and chemiosmosis take place on</li>
+<li>the inner mitochondrial membrane. Figure 5.13</li>
+<li>shows an electron-micrograph of a mitochondrion.</li>
+<li>On the cristae, the following events take place:</li>
+<li>the hydrogen atoms carried by reduced NAD</li>
+<li>and reduced FAD are released and split into</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 160</span><span>e arrangement of these molecules is shown in Th\gure 5.14.</span></div><div class="note-body"><ul>
+<li>At the end of the electron transport chain, the electrons combine</li>
+<li>with protons and with oxygen to form molecules of water. Because</li>
+<li>of this, oxygen is known as the</li>
+<li>terminal electron acceptor</li>
+<li>Whereas reduced NAD is dehydrogenated by the NAD</li>
+<li>dehydrogenase complex, reduced FAD is dehydrogenated by</li>
+<li>ubiquinone. So electrons from reduced FAD only operate two of the</li>
+<li>three proton pumps.</li>
+<li>Because of the action of the proton pumps, protons accumulate in</li>
+<li>the inter-membrane space creating a higher concentration there</li>
+<li>than in the matrix (\on the other side of the membrane)\. fi\is proton</li>
+<li>gradient results in protons difi\using through the ATP synthase</li>
+<li>molecule (\down the concentration gradient)\ making the synthase</li>
+<li>rotospinnd produce ATP from ADP and P</li>
+<li>e difi\usion of</li>
+<li>hydrogen ions through the ATP synthase is chemiosmosis.</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 162</span><span>Figure 5.16</span></div><div class="note-body"><ul>
+<li>A basic respirometer</li>
+<li>Figure 5.16 shows the respirometer placed under water. As the</li>
+<li>volume inside the respirometer decreases, water will enter the</li>
+<li>pipettee volume of water entering is equal to the volume of</li>
+<li>oxygen being used up. We can use this to measure the rate of</li>
+<li>respiration by measuring how much oxygen is used in a set period</li>
+<li>of time (\say 10 minutes)\ then working out a rate per minute.</li>
+<li>Activity 5.4: Measuring the rate of respiration of pea seeds</li>
+<li>You will need</li>
+<li>Figure 5.17</li>
+<li>How to assemble a</li>
+<li>respirometer</li>
+<li>pipette: fresh air</li>
+<li>equilibrates with the</li>
+<li>air in the glass tube</li>
+<li>stopper: this prevents</li>
+<li>gases and water fro</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 163</span><span>pipette.</span></div><div class="note-body"><ul>
+<li>syringe.</li>
+<li>of respiration.</li>
+<li>Figure 5.18</li>
+<li>Carrying out the experiment</li>
+<li>Figure 5.19</li>
+<li>A more sophisticated respirometer</li>
+<li>Figure 5.20</li>
+<li>Using the respirometer</li>
+<li>in a water bath</li>
+<li>potassium hydroxide</li>
+<li>solution plus water to</li>
+<li>equal the volume of</li>
+<li>the seeds in the other tube</li>
+<li>capillary U-tube</li>
+<li>containing</li>
+<li>coloured oil</li>
+<li>1 cm</li>
+<li>syringe</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 164</span><span>If there is no oxygen present, the Th\nal reaction of oxidative</span></div><div class="note-body"><ul>
+<li>phosphorylation, where electrons and protons react with oxygen</li>
+<li>to form water, cannot take place. As a result, the electron transport</li>
+<li>chain comes to a halt. No protons are pumped and the action of ATP</li>
+<li>synthase also stops.</li>
+<li>ere is a further &#39;\knock-onect. If the electron transport chain</li>
+<li>does not function, NAD is not regenerated from reduced NAD and</li>
+<li>FAD is not regenerated from reduced FAD. Very quickly, the Krebs</li>
+<li>cycle and the link reaction come to a halt as both NAD and FAD are</li>
+<li>required in their oxidised forms for the Krebs cycle to function. NAD</li>
+<li>is also required in the link reaction and so this comes to a halt also.</li>
+<li>However, glycolysis</li>
+<li>can</li>
+<li>continue even though it also requires NAD.</li>
+<li>s is because the reduced NAD formed during glycolysis can be</li>
+<li>regenerated under anaerobic conditions by converting the pyruvate</li>
+<li>into another product in a reduction reaction. Reduced NAD supplies</li>
+<li>the hydrogen for this reduction and becomes oxidised itself. It is</li>
+<li>therefore regenerated and can be used again in glycolysis.</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 165</span><span>KEY IDEA</span></div><div class="note-body"><ul>
+<li>Lactate formation during exercise</li>
+<li>Figure 5.23</li>
+<li>e Cori cycle</li>
+<li>Figure 5.24</li>
+<li>Some uses of fermentation in industry</li>
+<li>glucose</li>
+<li>2 pyruvate</li>
+<li>6ADP</li>
+<li>+ 6P</li>
+<li>2ADP</li>
+<li>+ 2P</li>
+<li>2 lactate</li>
+<li>liver</li>
+<li>AT</li>
+<li>muscle</li>
+<li>bloo</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 166</span><span>Activity 5.5: Investigating the rate of fermentation in yeast</span></div><div class="note-body"><ul>
+<li>fermentation</li>
+<li>rate of fermentation</li>
+<li>fermented.</li>
+<li>Figure 5.25</li>
+<li>A simple way of investigating</li>
+<li>the rate of fermentation in yeast</li>
+<li>Figure 5.26</li>
+<li>A fermenter that monitors</li>
+<li>changes electronically</li>
+<li>Figure 5.27</li>
+<li>Output from a fermenter</li>
+<li>water</li>
+<li>yeast in glucose</li>
+<li>solution</li>
+<li>oil layer</li>
+<li>2000</li>
+<li>4000</li>
+<li>6000</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 171</span><span>Figure 5.29</span></div><div class="note-body"><ul>
+<li>e structure of a chloroplast:</li>
+<li>A transmission electron</li>
+<li>micrograph of a section through a chloroplast;</li>
+<li>A three-dimensional</li>
+<li>representation of the structure of a chloroplast</li>
+<li>stroma</li>
+<li>thylakoid</li>
+<li>granum (\stack</li>
+<li>of thylakoids)\</li>
+<li>inter</li>
+<li>-membrane</li>
+<li>space</li>
+<li>inner</li>
+<li>membrane</li>
+<li>outer membrane</li>
+<li>double membrane</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 172</span><span>What is the structure of a photosystem?</span></div><div class="note-body"><ul>
+<li>A photosystem consists of a number of pigment molecules all</li>
+<li>clustered around one particular chlorophyll molecule called the</li>
+<li>reaction centre molecule. fi\is cluster of pigment molecules is</li>
+<li>called an antenna complex. Only the reaction centre molecule is</li>
+<li>positioned next to the electron transport chain. Energy absorbed</li>
+<li>by other molecules in the photosystem is transferred to the</li>
+<li>reaction</li>
+<li>centre</li>
+<li>molecule</li>
+<li>, where the light-dependent reactions</li>
+<li>begin. Difi\erent pigment molecules in the</li>
+<li>antenna</li>
+<li>complex</li>
+<li>can</li>
+<li>absorb difi\erent wavelengths of light, making the whole system</li>
+<li>more e\cient. fi\e pigments in the antenna complex include</li>
+<li>chlorophyll a, chlorophyll b and carotenoids. fi\e reaction centre</li>
+<li>molecule is always chlorophyll a. fi\e range of wavelengths each</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 173</span><span>e chlorophyll a molecule</span></div><div class="note-body"><ul>
+<li>in photosystem II is</li>
+<li>most active with light of</li>
+<li>wavelength of 680 nm</li>
+<li>(\P680)\; that in photosystem</li>
+<li>I is most active with light</li>
+<li>of a wavelength of 700 nm</li>
+<li>(\P700)\.</li>
+<li>Photosystem I and photosystem II</li>
+<li>1.</li>
+<li>Electrons (\e</li>
+<li>)\ in chlorophyll molecules in photosystem II are</li>
+<li>excited by the energy in photons of light -\ they become more</li>
+<li>energetic. Because of the extra energy, they escape from the</li>
+<li>chlorophyll and pass to an electron acceptor (\the</li>
+<li>primary</li>
+<li>electron acceptor</li>
+<li>)\.</li>
+<li>2.</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 174</span><span>of this electron transport chain, they can react with protons</span></div><div class="note-body"><ul>
+<li>(\hydrogen ions)\ and NADP in the stroma of the chloroplast to</li>
+<li>form reduced NADP.</li>
+<li>Figure 5.32 is part graph and part \ow chart showing how the</li>
+<li>reactions take place and in what sequence. But it doesnt show how</li>
+<li>the molecules are arranged in relation to each other to form what is</li>
+<li>called a</li>
+<li>photosynthetic unit</li>
+<li>. Figure 5.33 shows this arrangement.</li>
+<li>A photosynthetic unit is a unit of pigments, electron carriers</li>
+<li>and ATP synthase that is capable of carrying out all the reactions</li>
+<li>in the light-dependent stage of photosynthesis. fi\e formation</li>
+<li>of ATP in the way described above is called</li>
+<li>non-cyclic</li>
+<li>photophosphorylation</li>
+<li>. fi\is is because:</li>
+<li>the phosphorylation (\formation of ATP)\ is light-dependent</li>
+<li>the electrons lost from the chlorophyll are not recycled in any</li>
+<li>way</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 175</span><span>A summary of the light-dependent reactions</span></div><div class="note-body"><ul>
+<li>Light energy is used to excite electrons which then:</li>
+<li>membrane as they pass along the Th\first electron transport chain;</li>
+<li>this eventually leads to the formation of ATP, and</li>
+<li>electron transport chain to form reduced NADP; this reaction</li>
+<li>could only happen because of the extra energy possessed by the</li>
+<li>electrons.</li>
+<li>e ATP and reduced NADP are used to drive the synthesis of</li>
+<li>carbohydrates in the light-independent reactions of photosynthesis.</li>
+<li>Activity 5.10: Separate the photosynthetic pigments in spinach leaves</li>
+<li>You will need:</li>
+<li>Method</li>
+<li>Figure 5.35</li>
+<li>A chromatogram of</li>
+<li>the pigments in spinach leaves</li>
+<li>carotene</li>
+<li>xanothophyll</li>
+<li>chlorophyll</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 177</span><span>Figure 5.37</span></div><div class="note-body"><ul>
+<li>e light-</li>
+<li>independent reactions</li>
+<li>How the light-dependent and light-</li>
+<li>independent reactions are related</li>
+<li>During the light-independent reactions,</li>
+<li>reduced NADP is reoxidised to NADP</li>
+<li>and ATP is hydrolysed to ADP and</li>
+<li>ese are then reused in the light-</li>
+<li>dependent reactions to regenerate ATP</li>
+<li>and reduced NADP to be used again</li>
+<li>in the light-independent reactions \</li>
+<li>and so on. Figure 5.38 summarises</li>
+<li>the relationship between the light-</li>
+<li>dependent reactions and the light-</li>
+<li>independent reactions.</li>
+<li>Figure 5.38</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 179</span><span>a low temperature (\limiting the rate at which enzymes such as</span></div><div class="note-body"><ul>
+<li>Rubisco can operate)\</li>
+<li>a low concentration of carbon dioxide</li>
+<li>s limits the rate at which reduced NADP and ATP can be used,</li>
+<li>which, in turn, limits the amount of NADP and ADP + P</li>
+<li>that can</li>
+<li>be reused by the light-dependent reactions. fi\e whole process</li>
+<li>is therefore limited, even though the light intensity continues to</li>
+<li>increase. fi\is is shown in Th\gure 5.42.</li>
+<li>In the region of the graphs where light is non-limiting (\horizontal</li>
+<li>lines)\, the factors that are limiting are:</li>
+<li>A -\ both temperature and carbon dioxide; increasing either</li>
+<li>produces an increase in the rate of photosynthesis to level B</li>
+<li>B -\ temperature or carbon dioxide concentration (\the factor that</li>
+<li>hasnt been increased from A)\; increasing the temperature increases</li>
+<li>the rate to level C</li>
+<li>As well as the major factors discussed above, a number of other</li>
+<li>factors in\uence the rate of photosynthesis. fi\ese include:</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 180</span><span>Just enclosing the plants in a greenhouse</span></div><div class="note-body"><ul>
+<li>or polytunnel will increase the temperature</li>
+<li>(\because of thgreenhouse efi\ectithout</li>
+<li>any extra heating costs. However, this will</li>
+<li>only happen during daylight hours. At night,</li>
+<li>the greenhouse will cool down and growth</li>
+<li>processes other than photosynthesis will also</li>
+<li>slow down.</li>
+<li>However, before investing in any equipment</li>
+<li>to maintain increased temperatures and</li>
+<li>carbon dioxide concentrations, the grower</li>
+<li>needs to be aware of the likely gains. He/she</li>
+<li>needs to ask what will be the extra yield:</li>
+<li>dioxide?</li>
+<li>And will the extra cost of this be oet by</li>
+<li>extra prots?</li>
+<li>Elodea</li>
+<li>Figure 5.44</li>
+<li>Investigating the efi\ect of light</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 181</span><span>e cells that contain most chloroplasts (\the palisade cells)\ are</span></div><div class="note-body"><ul>
+<li>nearest the upper surface of the leaf (\to absorb as much light as</li>
+<li>possible)\. fi\e stomata are mainly on the lower surface, to minimise</li>
+<li>water loss. During the day, the stomata are open for most of the</li>
+<li>time to allow the entry of carbon dioxide, but they can be closed if</li>
+<li>the water loss is too great on a hot daye spongy mesophyll has</li>
+<li>air spaces that allow easy difi\usion of carbon dioxide and oxygen</li>
+<li>between the palisade layer and the stomata. Figure 5.45 shows the</li>
+<li>structure of the leaf of a C3 plant.</li>
+<li>However, plants in the tropics have a problem. Here, it can be very</li>
+<li>hot and the leaves close their stomata to minimise water loss. When</li>
+<li>C3 plants do this, the concentration of carbon dioxide in the leaves</li>
+<li>falls and the enzyme Rubisco starts to behave in an unusual way.</li>
+<li>In the low concentrations of carbon dioxide, Rubisco binds with</li>
+<li>oxygen, not carbon dioxide. fi\is means that RuBP is oxidised to</li>
+<li>one molecule of GP (\not two)\ and a molecule of phosphoglycolate.</li>
+<li>In addition, carbon dioxide is produced in the process. fi\e process</li>
+<li>is called</li>
+<li>photorespiration</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 182</span><span>It is not necessary to try to remember all these reactions. Instead,</span></div><div class="note-body"><ul>
+<li>think of the two phases of photorespiration:</li>
+<li>1.</li>
+<li>Rubisco catalyses a reaction between oxygen and RuBP to</li>
+<li>form one molecule of GP (\not two)\ and one molecule of</li>
+<li>phosphoglycolate.</li>
+<li>2.</li>
+<li>e phosphoglycolate is converted to GP in reactions in the</li>
+<li>chloroplast, peroxisome and mitochondrion.</li>
+<li>Photorespiration reduces the e\ciency of photosynthesis for several</li>
+<li>reasons, including:</li>
+<li>the carbon is oxidised, which is the reverse of photosynthesis -\</li>
+<li>the reduction of carbon to carbohydrate</li>
+<li>the ribulose bisphosphate must be resynthesised and the</li>
+<li>phosphoglycolate removed</li>
+<li>ATP is used in the resynthesis of RuBP.</li>
+<li>C4 photosynthesis</li>
+<li>To get round the problem of photorespiration reducing the</li>
+<li>e\ciency of photosynthesis, plants that grow in tropical areas</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 183</span><span>Figure 5.48</span></div><div class="note-body"><ul>
+<li>e light-independent reactions of the C4 pathway of</li>
+<li>photosynthesis</li>
+<li>3.</li>
+<li>In the bundle sheath cell, malate is converted to pyruvate with</li>
+<li>the release of a molecule of carbon dioxide, which starts the</li>
+<li>reactions of the Calvin cycle by binding with RuBP.</li>
+<li>4.</li>
+<li>e pyruvate is converted back to PEP; this reaction requires</li>
+<li>ATPese reactions are summarised in Th\gure 5.48.</li>
+<li>Overall, the C4 cycle uses two more molecules of ATP to deliver</li>
+<li>a molecule of carbon dioxide to Rubisco than does the C3 cycle.</li>
+<li>During active photosynthesis in the tropics, this is not a problem,</li>
+<li>as the high light intensity generates much ATP from the light-</li>
+<li>dependent reactions.</li>
+<li>C4 photosynthesis is most e\cient in conditions of:</li>
+<li>low carbon dioxide concentration</li>
+<li>high light intensity</li>
+<li>high temperature</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 184</span><span>Figure 5.50</span></div><div class="note-body"><ul>
+<li>e C4 and CAM photosynthetic pathways</li>
+<li>sugar cane</li>
+<li>pineapple</li>
+<li>CO</li>
+<li>malate</li>
+<li>sugar</li>
+<li>night</li>
+<li>day</li>
+<li>1. CO</li>
+<li>incorporated</li>
+<li>into four</li>
+<li>-carbon</li>
+<li>organic acids</li>
+<li>(\carbon fixation)\</li>
+<li>2. malate releases</li>
+<li>to Calvin</li>
+<li>cycle</li>
+</ul></div></div>
+<div class="note-card"><div class="note-title"><span class="note-no">Book page 191</span><span>End of unit questions</span></div><div class="note-body"><ul>
+<li>1.</li>
+<li>a)\</li>
+<li>Describe how the structure of a chloroplast is suited to its</li>
+<li>function.</li>
+<li>b)\</li>
+<li>Describe</li>
+<li>two</li>
+<li>ways in which chloroplasts and mitochondria</li>
+<li>are:</li>
+<li>(\i)\ similar</li>
+<li>(\ii)\ difi\erent</li>
+<li>2.</li>
+<li>three</li>
+<li>ways in which the ATP molecule is suited to</li>
+<li>its function of energy carrier in a cell.</li>
+<li>Describe how ATP is formed by:</li>
+<li>(\i)\ substrate-level phosphorylation</li>
+<li>(\ii)\ chemiosmosis</li>
+</ul></div></div>
+</div></div>
+<div class="section" id="practice"><div class="section-header"><div class="section-num" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">P</div><div class="section-title">Practice Questions</div></div><div class="section-body"><ol>
+<li>State the three main ideas of cell theory.</li>
+<li>Compare prokaryotic and eukaryotic cells using at least four differences.</li>
+<li>Explain why a large cell has exchange problems compared with a small cell.</li>
+<li>Describe the fluid mosaic model of the plasma membrane.</li>
+<li>Differentiate between diffusion, facilitated diffusion, osmosis, and active transport.</li>
+<li>Explain what happens to animal and plant cells in hypertonic, hypotonic, and isotonic solutions.</li>
+<li>List the stages of aerobic respiration and where each stage occurs.</li>
+<li>Explain why oxygen is needed for oxidative phosphorylation.</li>
+<li>Compare aerobic respiration with fermentation.</li>
+<li>Describe the structure of a chloroplast and relate it to photosynthesis.</li>
+<li>Summarise the light-dependent reactions of photosynthesis.</li>
+<li>Explain how C4 and CAM pathways reduce photorespiration or water loss.</li>
+</ol></div></div>
+<div class="section" id="cheat"><div class="section-header"><div class="section-num" style="background:linear-gradient(135deg,#34d399,#059669)">Q</div><div class="section-title">Quick Cheat Sheet - Last-Minute Review</div></div><div class="section-body"><table><tr><th>Concept</th><th>Key One-Liner</th></tr>
+<tr><td><strong>Cell theory</strong></td><td>Cells are the basic unit of life; all cells come from pre-existing cells.</td></tr>
+<tr><td><strong>Micrometre</strong></td><td>Common unit for measuring cells; 1 mm = 1000 micrometres.</td></tr>
+<tr><td><strong>Prokaryote</strong></td><td>Small cell with no true nucleus and no membrane-bound organelles.</td></tr>
+<tr><td><strong>Eukaryote</strong></td><td>Cell with nucleus, organelles, and internal membranes.</td></tr>
+<tr><td><strong>Surface area : volume</strong></td><td>Falls as a cell gets bigger, limiting exchange efficiency.</td></tr>
+<tr><td><strong>Fluid mosaic model</strong></td><td>Phospholipid bilayer with moving proteins and other membrane molecules.</td></tr>
+<tr><td><strong>Osmosis</strong></td><td>Water movement across a partially permeable membrane down a water potential gradient.</td></tr>
+<tr><td><strong>Active transport</strong></td><td>Movement against a concentration gradient using ATP.</td></tr>
+<tr><td><strong>ATP</strong></td><td>Immediate energy carrier: ATP -&gt; ADP + Pi releases energy.</td></tr>
+<tr><td><strong>Glycolysis</strong></td><td>Glucose splitting in the cytoplasm.</td></tr>
+<tr><td><strong>Krebs cycle</strong></td><td>Matrix cycle that produces reduced NAD/FAD and releases CO2.</td></tr>
+<tr><td><strong>Oxidative phosphorylation</strong></td><td>Electron transport plus chemiosmosis; oxygen is final electron acceptor.</td></tr>
+<tr><td><strong>Fermentation</strong></td><td>Anaerobic pathway that regenerates NAD so glycolysis can continue.</td></tr>
+<tr><td><strong>Photosystem</strong></td><td>Pigment cluster around a reaction centre chlorophyll molecule.</td></tr>
+<tr><td><strong>Calvin cycle</strong></td><td>Light-independent carbon fixation in the chloroplast stroma.</td></tr>
+<tr><td><strong>C4/CAM plants</strong></td><td>Adaptations that help reduce photorespiration or water loss.</td></tr>
+</table></div></div>
+</div></body></html>
