@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuha · Biology Study Guide · Units 4–6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============ DESIGN TOKENS ============ */
+  :root{
+    --bg: #07100d;
+    --bg-1: #0c1813;
+    --bg-2: #0f1d17;
+    --card: #11211a;
+    --card-hover: #142719;
+    --border: rgba(232,243,238,0.09);
+    --border-bright: rgba(232,243,238,0.18);
+    --text: #e9f3ee;
+    --text-dim: #9fb3ac;
+    --text-faint: #5f7770;
+
+    --u4: #3ddc97;       /* genetics — emerald */
+    --u4-soft: rgba(61,220,151,0.12);
+    --u4-line: rgba(61,220,151,0.35);
+
+    --u5: #ff7d97;       /* human body — coral rose */
+    --u5-soft: rgba(255,125,151,0.12);
+    --u5-line: rgba(255,125,151,0.35);
+
+    --u6: #ffbe55;       /* population & resources — amber */
+    --u6-soft: rgba(255,190,85,0.12);
+    --u6-line: rgba(255,190,85,0.35);
+
+    --warn: #ff9b6a;
+
+    --display: 'Sora', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 85% -10%, rgba(61,220,151,0.07), transparent 60%),
+      radial-gradient(ellipse 700px 500px at -10% 30%, rgba(255,125,151,0.05), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--display);
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{ background:var(--u4-soft); color:var(--text); }
+
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--u4); outline-offset:3px; border-radius:4px; }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    font-weight:600;
+  }
+
+  /* ============ LAYOUT SHELL ============ */
+  .shell{
+    display:grid;
+    grid-template-columns:264px 1fr;
+    max-width:1320px;
+    margin:0 auto;
+  }
+  @media (max-width:980px){
+    .shell{ grid-template-columns:1fr; }
+  }
+
+  /* ============ SIDEBAR NAV ============ */
+  .sidenav{
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+    padding:28px 20px 40px;
+    border-right:1px solid var(--border);
+    scrollbar-width:thin;
+  }
+  .sidenav::-webkit-scrollbar{ width:6px; }
+  .sidenav::-webkit-scrollbar-thumb{ background:var(--border-bright); border-radius:10px; }
+
+  .brand{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--text-dim);
+    letter-spacing:0.02em;
+    margin-bottom:6px;
+  }
+  .brand strong{ color:var(--text); font-weight:600; }
+
+  .progress-rail{
+    height:3px;
+    width:100%;
+    background:var(--border);
+    border-radius:3px;
+    margin:14px 0 26px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--u4), var(--u5), var(--u6));
+    border-radius:3px;
+    transition:width 0.15s ease-out;
+  }
+
+  .navgroup{ margin-bottom:22px; }
+  .navgroup-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:600;
+    padding:8px 10px;
+    border-radius:8px;
+    margin-bottom:4px;
+  }
+  .navgroup-title .dot{ width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+  .navgroup[data-unit="4"] .navgroup-title{ color:var(--u4); }
+  .navgroup[data-unit="4"] .dot{ background:var(--u4); box-shadow:0 0 8px var(--u4); }
+  .navgroup[data-unit="5"] .navgroup-title{ color:var(--u5); }
+  .navgroup[data-unit="5"] .dot{ background:var(--u5); box-shadow:0 0 8px var(--u5); }
+  .navgroup[data-unit="6"] .navgroup-title{ color:var(--u6); }
+  .navgroup[data-unit="6"] .dot{ background:var(--u6); box-shadow:0 0 8px var(--u6); }
+
+  .navlink{
+    display:block;
+    font-size:0.86rem;
+    color:var(--text-dim);
+    text-decoration:none;
+    padding:6px 10px 6px 25px;
+    border-radius:8px;
+    border-left:2px solid transparent;
+    transition:background 0.15s, color 0.15s;
+  }
+  .navlink:hover{ color:var(--text); background:rgba(255,255,255,0.03); }
+  .navlink.active{ color:var(--text); border-left-color:currentColor; background:rgba(255,255,255,0.04); }
+
+  .mobile-bar{
+    display:none;
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(7,16,13,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    padding:14px 18px;
+    align-items:center;
+    justify-content:space-between;
+  }
+  @media (max-width:980px){
+    .mobile-bar{ display:flex; }
+    .sidenav{ display:none; }
+    .sidenav.open{
+      display:block;
+      position:fixed;
+      inset:0;
+      z-index:60;
+      height:100vh;
+      background:var(--bg);
+      padding-top:70px;
+    }
+  }
+  .mobile-bar button{
+    background:var(--card);
+    border:1px solid var(--border);
+    color:var(--text);
+    font-family:var(--mono);
+    font-size:0.78rem;
+    padding:8px 14px;
+    border-radius:8px;
+  }
+  .mobile-close{
+    display:none;
+    position:fixed;
+    top:18px; right:18px;
+    z-index:70;
+    background:var(--card);
+    border:1px solid var(--border);
+    color:var(--text);
+    width:38px; height:38px;
+    border-radius:50%;
+    font-size:1.1rem;
+  }
+  .sidenav.open ~ .mobile-close, .sidenav.open .mobile-close{ display:block; }
+
+  /* ============ MAIN ============ */
+  main{ padding:0 0 80px; min-width:0; }
+
+  /* ---- HERO ---- */
+  .hero{
+    padding:72px 56px 56px;
+    border-bottom:1px solid var(--border);
+    position:relative;
+    overflow:hidden;
+  }
+  @media (max-width:980px){ .hero{ padding:48px 24px 40px; } }
+
+  .hero-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:0.74rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--u4);
+    background:var(--u4-soft);
+    border:1px solid var(--u4-line);
+    padding:6px 14px;
+    border-radius:30px;
+    margin-bottom:28px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.1rem, 4.4vw, 3.4rem);
+    font-weight:700;
+    line-height:1.08;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg, var(--u4), var(--u5) 55%, var(--u6));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.lede{
+    font-size:1.06rem;
+    color:var(--text-dim);
+    max-width:54ch;
+    margin:0 0 36px;
+  }
+
+  .hero-units{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+    max-width:760px;
+  }
+  @media (max-width:700px){ .hero-units{ grid-template-columns:1fr; } }
+  .hero-unit-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:18px 18px 16px;
+    text-decoration:none;
+    display:block;
+    transition:transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  }
+  .hero-unit-card:hover{ transform:translateY(-3px); background:var(--card-hover); }
+  .hero-unit-card[data-unit="4"]{ border-top:2px solid var(--u4); }
+  .hero-unit-card[data-unit="5"]{ border-top:2px solid var(--u5); }
+  .hero-unit-card[data-unit="6"]{ border-top:2px solid var(--u6); }
+  .hero-unit-card .num{ font-family:var(--mono); font-size:0.72rem; color:var(--text-faint); letter-spacing:0.08em; }
+  .hero-unit-card h3{ margin:6px 0 6px; font-size:1.05rem; font-weight:600; }
+  .hero-unit-card p{ margin:0; font-size:0.85rem; color:var(--text-dim); line-height:1.5; }
+
+  /* DNA helix signature */
+  .helix-wrap{
+    position:absolute;
+    right:-40px;
+    top:50%;
+    transform:translateY(-50%);
+    width:340px;
+    height:480px;
+    opacity:0.55;
+    pointer-events:none;
+  }
+  @media (max-width:1180px){ .helix-wrap{ display:none; } }
+  .helix-wrap svg{ width:100%; height:100%; }
+  .helix-strand{ animation:helixglow 5s ease-in-out infinite; }
+  @keyframes helixglow{
+    0%,100%{ opacity:0.55; }
+    50%{ opacity:1; }
+  }
+
+  /* ---- SECTION / UNIT STRUCTURE ---- */
+  .unit-divider{
+    padding:54px 56px 26px;
+    scroll-margin-top:20px;
+  }
+  @media (max-width:980px){ .unit-divider{ padding:44px 24px 20px; } }
+  .unit-divider .unit-tag{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .unit-divider[data-unit="4"] .unit-tag{ color:var(--u4); }
+  .unit-divider[data-unit="5"] .unit-tag{ color:var(--u5); }
+  .unit-divider[data-unit="6"] .unit-tag{ color:var(--u6); }
+  .unit-divider h2{ font-size:clamp(1.6rem,3vw,2.2rem); margin:0 0 12px; font-weight:700; }
+  .unit-divider .unit-intro{ color:var(--text-dim); max-width:62ch; font-size:0.98rem; }
+  .unit-divider .unit-rule{
+    height:2px; width:64px; border-radius:2px; margin-top:22px;
+  }
+  .unit-divider[data-unit="4"] .unit-rule{ background:var(--u4); }
+  .unit-divider[data-unit="5"] .unit-rule{ background:var(--u5); }
+  .unit-divider[data-unit="6"] .unit-rule{ background:var(--u6); }
+
+  .section{
+    padding:0 56px;
+    margin-bottom:6px;
+  }
+  @media (max-width:980px){ .section{ padding:0 24px; } }
+
+  /* ---- ACCORDION (sub-topic cards) ---- */
+  details.topic{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    margin-bottom:14px;
+    scroll-margin-top:20px;
+    overflow:hidden;
+  }
+  details.topic[open]{ border-color:var(--border-bright); }
+  details.topic summary{
+    list-style:none;
+    cursor:pointer;
+    padding:20px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+  }
+  details.topic summary::-webkit-details-marker{ display:none; }
+  details.topic summary .stitle{ display:flex; align-items:baseline; gap:12px; }
+  details.topic summary .scode{ font-family:var(--mono); font-size:0.78rem; color:var(--text-faint); flex-shrink:0; }
+  details.topic summary h3{ margin:0; font-size:1.08rem; font-weight:600; }
+  details.topic summary .chev{
+    font-family:var(--mono); color:var(--text-faint); font-size:1.1rem;
+    transition:transform 0.2s ease;
+    flex-shrink:0;
+  }
+  details.topic[open] summary .chev{ transform:rotate(45deg); }
+  .topic-body{ padding:0 22px 24px; color:var(--text-dim); }
+  .topic-body p{ margin:0 0 14px; }
+  .topic-body ul, .topic-body ol{ margin:0 0 14px; padding-left:1.3em; }
+  .topic-body li{ margin-bottom:7px; }
+  .topic-body strong{ color:var(--text); font-weight:600; }
+  .topic-body h4{ color:var(--text); font-size:0.95rem; margin:18px 0 10px; font-weight:600; }
+
+  details.topic[data-unit="4"] summary .scode{ color:var(--u4); }
+  details.topic[data-unit="5"] summary .scode{ color:var(--u5); }
+  details.topic[data-unit="6"] summary .scode{ color:var(--u6); }
+
+  /* ---- CALLOUT BOXES ---- */
+  .callout{
+    border-radius:var(--radius-sm);
+    padding:14px 16px;
+    margin:16px 0;
+    font-size:0.92rem;
+    border:1px solid var(--border);
+  }
+  .callout .ctitle{
+    font-family:var(--mono);
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:6px;
+    display:block;
+  }
+  .callout.ask{ background:rgba(255,255,255,0.025); }
+  .callout.ask .ctitle{ color:var(--text-faint); }
+  .callout.exam{ background:var(--u6-soft); border-color:var(--u6-line); }
+  .callout.exam .ctitle{ color:var(--u6); }
+  .callout.note[data-unit="4"]{ background:var(--u4-soft); border-color:var(--u4-line); }
+  .callout.note[data-unit="4"] .ctitle{ color:var(--u4); }
+  .callout.note[data-unit="5"]{ background:var(--u5-soft); border-color:var(--u5-line); }
+  .callout.note[data-unit="5"] .ctitle{ color:var(--u5); }
+  .callout.note[data-unit="6"]{ background:var(--u6-soft); border-color:var(--u6-line); }
+  .callout.note[data-unit="6"] .ctitle{ color:var(--u6); }
+  .callout.ethio{ background:rgba(255,255,255,0.03); border-left:3px solid var(--u6); }
+  .callout.ethio .ctitle{ color:var(--u6); }
+
+  /* ---- TABLES ---- */
+  .tbl-wrap{ overflow-x:auto; margin:16px 0; border-radius:var(--radius-sm); border:1px solid var(--border); }
+  table.dtable{ width:100%; border-collapse:collapse; font-size:0.86rem; min-width:480px; }
+  table.dtable th{
+    font-family:var(--mono); font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase;
+    text-align:left; padding:10px 14px; background:rgba(255,255,255,0.04); color:var(--text-dim); font-weight:600;
+    border-bottom:1px solid var(--border);
+  }
+  table.dtable td{ padding:11px 14px; border-bottom:1px solid var(--border); color:var(--text-dim); vertical-align:top; }
+  table.dtable tr:last-child td{ border-bottom:none; }
+  table.dtable td strong{ color:var(--text); }
+  table.dtable tr:hover td{ background:rgba(255,255,255,0.015); }
+
+  /* ---- PUNNETT GRID ---- */
+  .punnett{
+    display:inline-grid;
+    grid-template-columns:repeat(3, 56px);
+    gap:0;
+    margin:18px 0;
+    font-family:var(--mono);
+    font-size:0.86rem;
+    border:1px solid var(--border-bright);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  .punnett div{
+    display:flex; align-items:center; justify-content:center;
+    height:50px; border:0.5px solid var(--border);
+  }
+  .punnett .pcorner{ background:rgba(255,255,255,0.02); }
+  .punnett .phead{ background:rgba(255,255,255,0.05); color:var(--text); font-weight:600; }
+  .punnett .pcell{ color:var(--text-dim); }
+  .punnett .pcell.dom{ color:var(--u4); font-weight:600; }
+
+  /* ---- KEY TERMS / GLOSSARY CHIPS ---- */
+  .terms{ display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; }
+  .term-chip{
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:9px 13px;
+    font-size:0.84rem;
+    max-width:320px;
+  }
+  .term-chip b{ display:block; color:var(--text); font-family:var(--mono); font-size:0.76rem; margin-bottom:3px; letter-spacing:0.02em; }
+  .term-chip span{ color:var(--text-dim); }
+
+  /* ---- DIAGRAM FRAME ---- */
+  .diagram{
+    background:rgba(255,255,255,0.02);
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+    padding:20px;
+    margin:18px 0;
+    text-align:center;
+  }
+  .diagram svg{ max-width:100%; height:auto; }
+  .diagram .cap{ font-family:var(--mono); font-size:0.72rem; color:var(--text-faint); margin-top:10px; letter-spacing:0.02em; }
+
+  /* ---- PROCESS STEPS ---- */
+  .steps{ list-style:none; margin:16px 0; padding:0; counter-reset:step; }
+  .steps li{
+    position:relative; padding:4px 0 18px 38px; counter-increment:step;
+    border-left:1px solid var(--border); margin-left:13px;
+  }
+  .steps li:last-child{ border-left:1px solid transparent; padding-bottom:0;}
+  .steps li::before{
+    content:counter(step);
+    position:absolute; left:-13px; top:0;
+    width:26px; height:26px; border-radius:50%;
+    background:var(--card); border:1px solid var(--border-bright);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:0.72rem; color:var(--text);
+  }
+  .steps li strong{ color:var(--text); display:block; margin-bottom:3px; font-size:0.92rem; }
+
+  /* ---- UNIT SUMMARY BAR ---- */
+  .unit-end{
+    margin:30px 56px 0;
+    padding:26px 28px;
+    border-radius:var(--radius);
+    border:1px dashed var(--border-bright);
+  }
+  @media (max-width:980px){ .unit-end{ margin:30px 24px 0; padding:20px; } }
+  .unit-end h4{ margin:0 0 14px; font-family:var(--mono); font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); }
+
+  /* ---- QUIZ ---- */
+  .quiz-q{ margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+  .quiz-q:last-child{ border-bottom:none; margin-bottom:0; padding-bottom:0; }
+  .quiz-q p.qtext{ margin:0 0 12px; font-weight:500; color:var(--text); font-size:0.94rem; }
+  .quiz-opts{ display:flex; flex-direction:column; gap:8px; }
+  .quiz-opt{
+    text-align:left;
+    background:rgba(255,255,255,0.03);
+    border:1px solid var(--border);
+    color:var(--text-dim);
+    padding:10px 14px;
+    border-radius:8px;
+    font-family:var(--display);
+    font-size:0.88rem;
+    cursor:pointer;
+    transition:background 0.15s, border-color 0.15s;
+  }
+  .quiz-opt:hover{ background:rgba(255,255,255,0.06); }
+  .quiz-opt.correct{ border-color:var(--u4); background:var(--u4-soft); color:var(--text); }
+  .quiz-opt.wrong{ border-color:var(--u5); background:var(--u5-soft); color:var(--text); }
+  .quiz-opt[disabled]{ cursor:default; }
+  .quiz-explain{
+    display:none; margin-top:10px; font-size:0.84rem; color:var(--text-dim);
+    background:rgba(255,255,255,0.025); padding:10px 12px; border-radius:8px;
+  }
+  .quiz-explain.show{ display:block; }
+
+  /* ---- FOOTER ---- */
+  footer{
+    padding:48px 56px 60px;
+    border-top:1px solid var(--border);
+    margin-top:40px;
+    color:var(--text-faint);
+    font-size:0.86rem;
+  }
+  @media (max-width:980px){ footer{ padding:40px 24px; } }
+  footer .fbrand{ font-family:var(--mono); color:var(--text-dim); margin-bottom:8px; }
+
+  h2.bare{ font-size:1.5rem; font-weight:700; margin:0 0 4px; }
+</style>
+</head>
+<body>
+
+<div class="mobile-bar">
+  <span class="brand"><strong>Nuha</strong> · Bio G11</span>
+  <button id="navToggle">Contents ☰</button>
+</div>
+
+<div class="shell">
+  <!-- ============ SIDEBAR ============ -->
+  <nav class="sidenav" id="sidenav">
+    <button class="mobile-close" id="navClose">✕</button>
+    <div class="brand">Biology study guide<br><strong>Grade 11 · Units 4–6</strong></div>
+    <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+
+    <div class="navgroup" data-unit="4">
+      <div class="navgroup-title"><span class="dot"></span> Unit 4 · Genetics</div>
+      <a class="navlink" href="#u4-41">4.1 Genetic material</a>
+      <a class="navlink" href="#u4-42">4.2 DNA &amp; RNA</a>
+      <a class="navlink" href="#u4-43">4.3 Cell division</a>
+      <a class="navlink" href="#u4-44">4.4 Protein synthesis</a>
+      <a class="navlink" href="#u4-45">4.5 Mendelian inheritance</a>
+      <a class="navlink" href="#u4-46">4.6 Sex determination</a>
+      <a class="navlink" href="#u4-47">4.7 Non-Mendelian inheritance</a>
+      <a class="navlink" href="#u4-48">4.8 Pedigree analysis</a>
+      <a class="navlink" href="#u4-49">4.9 Genetic disorders</a>
+      <a class="navlink" href="#u4-410">4.10–4.11 Testing, counseling &amp; gene therapy</a>
+      <a class="navlink" href="#u4-412">4.12 Breeding</a>
+      <a class="navlink" href="#u4-413">4.13 Bioinformatics</a>
+      <a class="navlink" href="#u4-quiz">↺ Unit 4 self-test</a>
+    </div>
+
+    <div class="navgroup" data-unit="5">
+      <div class="navgroup-title"><span class="dot"></span> Unit 5 · Human body systems</div>
+      <a class="navlink" href="#u5-51">5.1 Musculoskeletal system</a>
+      <a class="navlink" href="#u5-52">5.2 Reproductive system</a>
+      <a class="navlink" href="#u5-53">5.3 Harmful traditional practices</a>
+      <a class="navlink" href="#u5-54">5.4 Family planning</a>
+      <a class="navlink" href="#u5-55">5.5 Alcohol, khat &amp; drugs</a>
+      <a class="navlink" href="#u5-quiz">↺ Unit 5 self-test</a>
+    </div>
+
+    <div class="navgroup" data-unit="6">
+      <div class="navgroup-title"><span class="dot"></span> Unit 6 · Population &amp; resources</div>
+      <a class="navlink" href="#u6-61">6.1 Population ecology</a>
+      <a class="navlink" href="#u6-62">6.2 Natural resources</a>
+      <a class="navlink" href="#u6-63">6.3 Conservation in Ethiopia</a>
+      <a class="navlink" href="#u6-64">6.4 Traffic &amp; wildlife</a>
+      <a class="navlink" href="#u6-65">6.5 Human impact on environment</a>
+      <a class="navlink" href="#u6-66">6.6 Indigenous conservation</a>
+      <a class="navlink" href="#u6-quiz">↺ Unit 6 self-test</a>
+    </div>
+  </nav>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-eyebrow">● Exam prep · Genetics → Human Body → Ecology</div>
+      <h1>Nuha's biology<br><em>study guide</em></h1>
+      <p class="lede">A condensed, exam-focused walkthrough of Units 4, 5 and 6 — genetics, human body systems, and population &amp; natural resources — built from your Grade 11 syllabus.</p>
+      <div class="hero-units">
+        <a class="hero-unit-card" data-unit="4" href="#u4-41">
+          <div class="num">UNIT 04</div>
+          <h3>Genetics</h3>
+          <p>DNA, inheritance, disorders &amp; breeding</p>
+        </a>
+        <a class="hero-unit-card" data-unit="5" href="#u5-51">
+          <div class="num">UNIT 05</div>
+          <h3>Human body systems</h3>
+          <p>Muscles, skeleton &amp; reproduction</p>
+        </a>
+        <a class="hero-unit-card" data-unit="6" href="#u6-61">
+          <div class="num">UNIT 06</div>
+          <h3>Population &amp; resources</h3>
+          <p>Growth, conservation &amp; environment</p>
+        </a>
+      </div>
+
+      <div class="helix-wrap" aria-hidden="true">
+        <svg viewBox="0 0 200 480" class="helix-strand">
+          <defs>
+            <linearGradient id="strandA" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3ddc97"/>
+              <stop offset="100%" stop-color="#ffbe55"/>
+            </linearGradient>
+            <linearGradient id="strandB" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffbe55"/>
+              <stop offset="100%" stop-color="#ff7d97"/>
+            </linearGradient>
+          </defs>
+          <g stroke-width="2.5" fill="none" stroke-linecap="round">
+            <path d="M 30 0 C 90 30, 110 60, 100 90 C 90 120, 30 140, 30 170 C 30 200, 90 220, 100 250 C 110 280, 90 310, 30 330 C 30 360, 90 380, 100 410 C 110 440, 90 460, 30 480" stroke="url(#strandA)"/>
+            <path d="M 170 0 C 110 30, 90 60, 100 90 C 110 120, 170 140, 170 170 C 170 200, 110 220, 100 250 C 90 280, 110 310, 170 330 C 170 360, 110 380, 100 410 C 90 440, 110 460, 170 480" stroke="url(#strandB)"/>
+          </g>
+          <g stroke="#e9f3ee" stroke-opacity="0.18" stroke-width="2">
+            <line x1="34" y1="14" x2="166" y2="14"/>
+            <line x1="48" y1="46" x2="152" y2="46"/>
+            <line x1="78" y1="78" x2="122" y2="78"/>
+            <line x1="98" y1="104" x2="102" y2="104"/>
+            <line x1="70" y1="134" x2="130" y2="134"/>
+            <line x1="40" y1="166" x2="160" y2="166"/>
+            <line x1="34" y1="194" x2="166" y2="194"/>
+            <line x1="48" y1="226" x2="152" y2="226"/>
+            <line x1="78" y1="258" x2="122" y2="258"/>
+            <line x1="98" y1="284" x2="102" y2="284"/>
+            <line x1="70" y1="314" x2="130" y2="314"/>
+            <line x1="40" y1="346" x2="160" y2="346"/>
+            <line x1="34" y1="374" x2="166" y2="374"/>
+            <line x1="48" y1="406" x2="152" y2="406"/>
+            <line x1="78" y1="438" x2="122" y2="438"/>
+            <line x1="98" y1="464" x2="102" y2="464"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <div class="unit-divider" data-unit="4">
+      <div class="unit-tag">Unit Four</div>
+      <h2>Genetics</h2>
+      <p class="unit-intro">How traits move from parents to offspring — from the molecule (DNA) to the pattern (Mendel's laws) to the real-world application (disorders, testing, and breeding).</p>
+      <div class="unit-rule"></div>
+    </div>
+
+    <section class="section">
+
+      <details class="topic" data-unit="4" id="u4-41" open>
+        <summary><div class="stitle"><span class="scode">4.1</span><h3>The genetic material</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p><strong>Genetics</strong> is the branch of biology that studies how genetic material is organized and how traits pass from one generation to the next through genes. In almost every organism the genetic material is <strong>DNA</strong>. A handful of viruses — including HIV and the coronavirus that causes COVID-19 — use <strong>RNA</strong> instead.</p>
+          <div class="callout note" data-unit="4"><span class="ctitle">Exam angle</span>This single fact ("DNA is the genetic material in nearly all organisms, RNA in some viruses") is a common true/false or fill-in-the-blank item.</div>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-42">
+        <summary><div class="stitle"><span class="scode">4.2</span><h3>Structure &amp; function of DNA and RNA</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <h4>DNA structure</h4>
+          <p>DNA is a double helix — two strands twisted around each other like a spiral ladder. The <strong>sugar (deoxyribose) and phosphate groups</strong> form the two side-rails, and pairs of <strong>nitrogenous bases</strong> form the rungs.</p>
+          <p>The basic building block is the <strong>nucleotide</strong>: one sugar + one phosphate + one nitrogenous base. There are four bases, split into two chemical families:</p>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Family</th><th>Bases</th><th>Pairs with</th></tr>
+            <tr><td><strong>Purines</strong></td><td>Adenine (A), Guanine (G)</td><td>A↔T, G↔C</td></tr>
+            <tr><td><strong>Pyrimidines</strong></td><td>Thymine (T), Cytosine (C)</td><td>T↔A, C↔G</td></tr>
+          </table></div>
+          <p>Each strand has a direction — a <strong>5′ end and a 3′ end</strong> — and the two strands run <strong>antiparallel</strong> (opposite directions), coiled into a right-handed spiral. <strong>James Watson and Francis Crick</strong> discovered this double-helix structure.</p>
+
+          <div class="diagram">
+            <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 10 C 80 30, 80 50, 160 50 C 240 50, 240 30, 300 10" stroke="#3ddc97" stroke-width="3" fill="none"/>
+              <path d="M20 10 C 80 -10, 80 130, 160 130 C 240 130, 240 -10, 300 10" stroke="#ffbe55" stroke-width="3" fill="none" transform="translate(0,10)"/>
+              <path d="M20 150 C 80 130, 80 110, 160 110 C 240 110, 240 130, 300 150" stroke="#3ddc97" stroke-width="3" fill="none"/>
+              <g stroke="#9fb3ac" stroke-width="2">
+                <line x1="50" y1="20" x2="50" y2="120"/>
+                <line x1="90" y1="36" x2="90" y2="108"/>
+                <line x1="130" y1="46" x2="130" y2="98"/>
+                <line x1="160" y1="50" x2="160" y2="94"/>
+                <line x1="190" y1="46" x2="190" y2="98"/>
+                <line x1="230" y1="36" x2="230" y2="108"/>
+                <line x1="270" y1="20" x2="270" y2="120"/>
+              </g>
+            </svg>
+            <div class="cap">Double-helix backbone with base-pair "rungs" — not to scale</div>
+          </div>
+
+          <h4>Genes &amp; chromosomes</h4>
+          <p>A <strong>gene</strong> is a section of DNA that carries the instructions for one characteristic. A <strong>chromosome</strong> is a thread-like structure made of DNA wound around a protein called <strong>histone</strong>. A single chromosome can carry hundreds to thousands of genes, each at its own fixed position called a <strong>locus</strong> (plural: loci).</p>
+          <p>Chromosomes exist in pairs in diploid organisms — one inherited from the mother, one from the father. <strong>Humans have 46 chromosomes, arranged in 23 pairs.</strong></p>
+
+          <h4>DNA replication</h4>
+          <p>Before a cell divides, its DNA must be copied so each new cell gets a full set. DNA replication is <strong>semi-conservative</strong>: each new double helix contains one original (parent) strand and one newly made strand.</p>
+
+          <h4>RNA</h4>
+          <p>RNA differs from DNA in three key ways: it is usually <strong>single-stranded</strong>, its sugar is <strong>ribose</strong> (not deoxyribose), and it uses the base <strong>Uracil (U)</strong> in place of Thymine. RNA's main job is carrying out the instructions in DNA — especially during protein synthesis (see 4.4).</p>
+
+          <div class="callout exam"><span class="ctitle">Likely exam question</span>"List three structural differences between DNA and RNA." → strand number, sugar type, and U vs T.</div>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-43">
+        <summary><div class="stitle"><span class="scode">4.3</span><h3>Cell division</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>Cells divide for two very different purposes — growth/repair, and sexual reproduction — and use two different processes accordingly.</p>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th></th><th>Mitosis</th><th>Meiosis</th></tr>
+            <tr><td><strong>Purpose</strong></td><td>Growth, repair, asexual reproduction</td><td>Formation of gametes (sperm/egg) for sexual reproduction</td></tr>
+            <tr><td><strong>Divisions</strong></td><td>One</td><td>Two (Meiosis I &amp; II)</td></tr>
+            <tr><td><strong>Daughter cells</strong></td><td>2, diploid (2n)</td><td>4, haploid (n)</td></tr>
+            <tr><td><strong>Genetic identity</strong></td><td>Identical to parent cell</td><td>Genetically unique (crossing over + independent assortment)</td></tr>
+          </table></div>
+          <h4>Phases of mitosis</h4>
+          <ol class="steps">
+            <li><strong>Prophase</strong> — chromosomes condense and become visible; the mitotic spindle begins forming.</li>
+            <li><strong>Metaphase</strong> — chromosomes line up along the cell's equator (the metaphase plate).</li>
+            <li><strong>Anaphase</strong> — sister chromatids are pulled apart toward opposite poles.</li>
+            <li><strong>Telophase &amp; cytokinesis</strong> — two new nuclei form and the cytoplasm divides, producing two identical daughter cells.</li>
+          </ol>
+          <h4>Meiosis — the source of genetic variation</h4>
+          <p>Meiosis includes everything mitosis does, but twice, with one crucial extra event: in <strong>Prophase I</strong>, homologous chromosomes pair up and exchange segments — a process called <strong>crossing over</strong> — and in <strong>Metaphase I</strong>, homologous pairs line up and separate randomly (the physical basis of <em>independent assortment</em>, see 4.5). Together these two events are why siblings (other than identical twins) are never genetically identical.</p>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-44">
+        <summary><div class="stitle"><span class="scode">4.4</span><h3>Protein synthesis</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>Genes don't build the body directly — they code for proteins, which then carry out almost every job in the cell. This flow of information is sometimes called the <strong>central dogma</strong>: <strong>DNA → RNA → Protein</strong>.</p>
+          <ol class="steps">
+            <li><strong>Transcription</strong> (in the nucleus) — an enzyme (RNA polymerase) copies one strand of a gene into a complementary strand of <strong>messenger RNA (mRNA)</strong>.</li>
+            <li><strong>mRNA processing &amp; export</strong> — the mRNA travels out of the nucleus to a ribosome.</li>
+            <li><strong>Translation</strong> (at the ribosome) — the ribosome reads the mRNA three bases (a <strong>codon</strong>) at a time. <strong>Transfer RNA (tRNA)</strong> molecules, each carrying a matching <strong>anticodon</strong> and a specific amino acid, bring the correct amino acids in sequence.</li>
+            <li><strong>Polypeptide formation</strong> — amino acids are joined into a chain, which folds into a functional protein.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-45">
+        <summary><div class="stitle"><span class="scode">4.5</span><h3>Mendelian inheritance</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p><strong>Gregor Mendel</strong>, an Austrian monk, worked out the basic rules of inheritance through years of breeding experiments with garden pea plants (<em>Pisum sativum</em>), studying seven pairs of contrasting traits (e.g. tall vs. dwarf, round vs. wrinkled seeds).</p>
+
+          <h4>Key vocabulary</h4>
+          <div class="terms">
+            <div class="term-chip"><b>P, F1, F2</b><span>Parental generation; first filial (offspring) generation; second filial generation</span></div>
+            <div class="term-chip"><b>Dominant / recessive</b><span>The trait that appears in F1 is dominant; the one that re-appears in F2 is recessive</span></div>
+            <div class="term-chip"><b>Genotype / phenotype</b><span>An organism's genetic makeup vs. its observable trait</span></div>
+            <div class="term-chip"><b>Homozygous / heterozygous</b><span>Two identical alleles (e.g. TT, tt) vs. two different alleles (Tt)</span></div>
+          </div>
+
+          <h4>Monohybrid cross</h4>
+          <p>Crosses a single trait. Mendel crossed pure-breeding tall (TT) with pure-breeding dwarf (tt) plants. All F1 offspring were tall and heterozygous (Tt). When F1 plants self-pollinated, the F2 generation showed tall and dwarf plants in a <strong>3∶1 ratio</strong>.</p>
+          <div class="diagram">
+            <div class="punnett">
+              <div class="pcorner"></div><div class="phead">T</div><div class="phead">t</div>
+              <div class="phead">T</div><div class="pcell dom">TT</div><div class="pcell dom">Tt</div>
+              <div class="phead">t</div><div class="pcell dom">Tt</div><div class="pcell">tt</div>
+            </div>
+            <div class="cap">F1 (Tt) × F1 (Tt) → 1 TT : 2 Tt : 1 tt genotype → 3 tall : 1 dwarf phenotype</div>
+          </div>
+
+          <h4>Dihybrid cross</h4>
+          <p>Tracks two traits at once (e.g. seed shape <em>and</em> seed color). Crossing two double-heterozygotes (RrYy × RrYy) produces a <strong>9∶3∶3∶1 phenotypic ratio</strong> in F2 — 9 dominant-dominant : 3 dominant-recessive : 3 recessive-dominant : 1 recessive-recessive.</p>
+
+          <h4>Test cross</h4>
+          <p>Used to reveal an <em>unknown</em> genotype by crossing it with a known homozygous recessive individual.</p>
+          <ul>
+            <li>If <strong>all</strong> offspring show the dominant trait → the unknown parent was <strong>homozygous dominant</strong>.</li>
+            <li>If offspring split <strong>≈1∶1</strong> dominant : recessive → the unknown parent was <strong>heterozygous</strong>.</li>
+          </ul>
+
+          <h4>Mendel's two laws</h4>
+          <ul>
+            <li><strong>Law of segregation</strong> — the two alleles for a gene separate during meiosis, so each gamete carries only one allele. (Physical basis: Anaphase I of meiosis.)</li>
+            <li><strong>Law of independent assortment</strong> — alleles of different genes sort into gametes independently of one another. (Physical basis: random alignment of chromosome pairs at Metaphase I.)</li>
+          </ul>
+          <div class="callout exam"><span class="ctitle">Exam angle</span>Ratios are the highest-yield numbers in this whole unit: <strong>3∶1</strong> (monohybrid F2) and <strong>9∶3∶3∶1</strong> (dihybrid F2). Be able to build a Punnett square from scratch, not just recall the ratio.</div>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-46">
+        <summary><div class="stitle"><span class="scode">4.6</span><h3>Sex determination</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>In humans, sex is determined by one pair of chromosomes: <strong>XX produces a female</strong>, <strong>XY produces a male</strong>. Every egg carries an X chromosome; sperm carry either an X or a Y. Because the father's sperm determines the combination, <strong>the father's gamete determines the sex of the child.</strong></p>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-47">
+        <summary><div class="stitle"><span class="scode">4.7</span><h3>Non-Mendelian inheritance</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>Not every trait follows Mendel's simple dominant/recessive pattern. These four patterns are the main exceptions tested at this level.</p>
+
+          <h4>Co-dominance</h4>
+          <p>Both alleles are expressed <strong>fully and equally</strong> — neither masks the other. Example: the AB blood type, where both A and B antigens appear together on red blood cells.</p>
+
+          <h4>Incomplete dominance</h4>
+          <p>The heterozygote shows a <strong>blended</strong> phenotype in between the two homozygous forms — e.g. crossing red-flowered and white-flowered plants can produce pink-flowered offspring.</p>
+
+          <h4>Multiple alleles — the ABO blood group</h4>
+          <p>A single gene can have more than two alleles across a population, even though one individual only carries two. Human blood type is controlled by three alleles: <strong>I<sup>A</sup>, I<sup>B</sup>, and i</strong>. I<sup>A</sup> and I<sup>B</sup> are co-dominant with each other; both are dominant over i.</p>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Genotype</th><th>Blood type (phenotype)</th></tr>
+            <tr><td>I<sup>A</sup>I<sup>A</sup> or I<sup>A</sup>i</td><td>A</td></tr>
+            <tr><td>I<sup>B</sup>I<sup>B</sup> or I<sup>B</sup>i</td><td>B</td></tr>
+            <tr><td>I<sup>A</sup>I<sup>B</sup></td><td>AB</td></tr>
+            <tr><td>ii</td><td>O</td></tr>
+          </table></div>
+
+          <h4>Rh factor</h4>
+          <p>A separate blood-group gene from ABO. <strong>Rh+ is dominant</strong> over Rh−. Medically important during pregnancy: if an Rh− mother carries an Rh+ baby, her immune system can react against the baby's blood in later pregnancies, so Rh status is routinely checked.</p>
+
+          <h4>Sex-linked inheritance</h4>
+          <p>Genes carried on the X chromosome show a distinctive inheritance pattern because males (XY) only have one copy. A recessive X-linked allele is therefore expressed in any male who inherits it, while a female needs <strong>two</strong> copies (X<sup>h</sup>X<sup>h</sup>) to show the trait — which is why X-linked recessive conditions like <strong>hemophilia</strong> are far more common in males.</p>
+
+          <h4>Environmental effects on phenotype</h4>
+          <p>Genotype sets the potential, but environment can shape the final phenotype — temperature, nutrition, and other external factors can all influence how a trait is expressed.</p>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-48">
+        <summary><div class="stitle"><span class="scode">4.8</span><h3>Human pedigree analysis</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>A <strong>pedigree</strong> is a chart that traces a trait through a family tree across generations. By reading the pattern of who is and isn't affected, you can work out:</p>
+          <ul>
+            <li>Whether the trait is <strong>dominant or recessive</strong></li>
+            <li>Whether it's carried on an <strong>autosome or a sex chromosome</strong></li>
+            <li>The likely <strong>genotypes</strong> of family members</li>
+            <li>The <strong>probability</strong> that future children will inherit it</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-49">
+        <summary><div class="stitle"><span class="scode">4.9</span><h3>Genetic disorders</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>A <strong>genetic disorder</strong> is a disease caused by a <strong>mutation</strong> — a change in the DNA sequence, which can arise from replication errors or environmental factors. Disorders fall into three categories:</p>
+
+          <h4>1. Single-gene disorders</h4>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Pattern</th><th>How it's expressed</th><th>Example</th></tr>
+            <tr><td><strong>Autosomal dominant</strong></td><td>Shows up even when heterozygous; inherited the same regardless of parent's sex</td><td>Huntington's disease</td></tr>
+            <tr><td><strong>Autosomal recessive</strong></td><td>Needs two copies (one from each parent); carriers are unaffected</td><td>Cystic fibrosis, albinism</td></tr>
+            <tr><td><strong>X-linked recessive</strong></td><td>Far more common in males (only need one copy); females need two</td><td>Hemophilia</td></tr>
+          </table></div>
+
+          <h4>2. Chromosome disorders</h4>
+          <p>Caused by changes in chromosome <em>number</em> or <em>structure</em>, usually from errors during cell division.</p>
+          <ul>
+            <li><strong>Aneuploidy</strong> — wrong chromosome number (e.g. 2n+1, 2n−1). <strong>Down syndrome (trisomy 21)</strong> is the best-known example: three copies of chromosome 21 instead of two.</li>
+            <li><strong>Deletion</strong> — a chromosome segment is lost.</li>
+            <li><strong>Inversion</strong> — a segment breaks off, flips, and reinserts backwards.</li>
+            <li><strong>Translocation</strong> — a segment moves to a different chromosome.</li>
+          </ul>
+
+          <h4>3. Multifactorial disorders</h4>
+          <p>Caused by a <strong>combination</strong> of multiple genes interacting with lifestyle/environmental factors (smoking, diet, sleep, pollution). Examples: <strong>diabetes and cancer</strong>.</p>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-410">
+        <summary><div class="stitle"><span class="scode">4.10–4.11</span><h3>Genetic testing, counseling &amp; gene therapy</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p><strong>Genetic testing and counseling</strong> identify a person's or couple's risk of carrying or passing on a genetic disorder, helping them make informed reproductive and health decisions.</p>
+          <p><strong>Gene therapy</strong> treats or prevents disease by introducing, removing, or correcting genetic material inside a patient's cells — directly targeting the faulty gene rather than just its symptoms.</p>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-412">
+        <summary><div class="stitle"><span class="scode">4.12</span><h3>Breeding</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p><strong>Breeding</strong> applies genetic principles to agriculture and animal husbandry to enhance desirable qualities. It can happen through <strong>selective breeding (artificial selection)</strong> or <strong>natural selection</strong> (no human intervention; better-adapted individuals survive and reproduce more).</p>
+
+          <h4>Selective breeding</h4>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Type</th><th>Definition</th><th>Trade-off</th></tr>
+            <tr><td><strong>Inbreeding</strong></td><td>Mating genetically similar/related individuals to fix stable, "purebred" traits</td><td>Increases the chance recessive (often harmful) traits appear</td></tr>
+            <tr><td><strong>Crossbreeding</strong></td><td>Mating unrelated individuals from different breeds or species</td><td>Boosts desirable traits, but can dilute indigenous breeds</td></tr>
+          </table></div>
+
+          <h4>Plant breeding techniques</h4>
+          <ul>
+            <li><strong>Mass selection</strong> — selecting many plants with the desired phenotype and pooling their seed; the simplest, oldest method.</li>
+            <li><strong>Pure line selection</strong> — individually evaluating progeny from self-pollinated plants and releasing the best line.</li>
+            <li><strong>Bulk method</strong> — growing F2 and later generations together in bulk before selecting individuals.</li>
+          </ul>
+
+          <div class="callout ethio"><span class="ctitle">Ethiopian context</span>Ethiopian farmers have long applied indigenous breeding knowledge — for example, selectively breeding long-tailed and long-horned sheep, and crossbreeding local Borena cattle with exotic sires to combine local resilience with improved productivity.</div>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="4" id="u4-413">
+        <summary><div class="stitle"><span class="scode">4.13</span><h3>Bioinformatics — introduction</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p><strong>Bioinformatics</strong> is the use of computational tools and databases to collect, organize, and analyze large biological datasets — most notably DNA and protein sequences — making genome-scale genetics research possible.</p>
+        </div>
+      </details>
+
+    </section>
+
+    <div class="unit-end">
+      <h4>Unit 4 — Quick glossary</h4>
+      <div class="terms">
+        <div class="term-chip"><b>Allele</b><span>An alternative version of a gene</span></div>
+        <div class="term-chip"><b>Locus</b><span>A gene's fixed position on a chromosome</span></div>
+        <div class="term-chip"><b>Karyotype</b><span>The complete set of an organism's chromosomes</span></div>
+        <div class="term-chip"><b>Mutation</b><span>A change in a DNA sequence</span></div>
+        <div class="term-chip"><b>Carrier</b><span>A heterozygous individual who carries but doesn't show a recessive trait</span></div>
+        <div class="term-chip"><b>Trisomy</b><span>Having three copies of one chromosome instead of two</span></div>
+      </div>
+    </div>
+
+    <div class="unit-end" id="u4-quiz">
+      <h4>Unit 4 — Self-test</h4>
+
+      <div class="quiz-q">
+        <p class="qtext">1. Crossing TT × tt produces an F1 generation that is all:</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">TT</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Tt</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">tt</button>
+        </div>
+        <div class="quiz-explain">Every offspring receives one T from the TT parent and one t from the tt parent → all Tt (heterozygous, tall).</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">2. What phenotypic ratio does a dihybrid F2 cross (RrYy × RrYy) produce?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">3∶1</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">9∶3∶3∶1</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">1∶2∶1</button>
+        </div>
+        <div class="quiz-explain">Two independently assorting genes produce four phenotype classes in a 9∶3∶3∶1 ratio.</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">3. Why are X-linked recessive disorders like hemophilia more common in males?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Males have more X chromosomes</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Males only need one recessive copy to show it (XY)</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">The Y chromosome causes it</button>
+        </div>
+        <div class="quiz-explain">Males are XY, so a single recessive allele on their one X is unmasked. Females (XX) need two copies to show the trait.</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">4. Down syndrome is an example of which category of genetic disorder?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Single-gene disorder</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Chromosome disorder (aneuploidy)</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Multifactorial disorder</button>
+        </div>
+        <div class="quiz-explain">Down syndrome is trisomy 21 — an extra copy of chromosome 21 — making it a chromosomal (aneuploidy) disorder.</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">5. Which process creates genetic variation through exchange of chromosome segments?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Mitosis</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Crossing over (Prophase I of meiosis)</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Translation</button>
+        </div>
+        <div class="quiz-explain">Crossing over swaps segments between homologous chromosomes during Prophase I, mixing parental gene combinations.</div>
+      </div>
+
+    </div>
+
+    <div class="unit-divider" data-unit="5">
+      <div class="unit-tag">Unit Five</div>
+      <h2>The human body systems</h2>
+      <p class="unit-intro">Movement and reproduction — how muscles and bones generate motion, and how the reproductive system works, including the health and social issues tied to it.</p>
+      <div class="unit-rule"></div>
+    </div>
+
+    <section class="section">
+
+      <details class="topic" data-unit="5" id="u5-51" open>
+        <summary><div class="stitle"><span class="scode">5.1</span><h3>Musculoskeletal system</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <h4>Three types of muscle</h4>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Type</th><th>Control</th><th>Appearance</th><th>Location</th></tr>
+            <tr><td><strong>Cardiac</strong></td><td>Involuntary</td><td>Striated</td><td>Heart wall (myocardium), cells linked by intercalated discs</td></tr>
+            <tr><td><strong>Skeletal</strong></td><td>Voluntary</td><td>Striated</td><td>Attached to bones via tendons; ~30–40% of body mass</td></tr>
+            <tr><td><strong>Smooth</strong></td><td>Involuntary</td><td>Non-striated</td><td>Walls of hollow organs — stomach, intestine, bladder, uterus, blood vessels</td></tr>
+          </table></div>
+
+          <h4>How a skeletal muscle contracts (sliding filament mechanism)</h4>
+          <p>Each muscle fiber is packed with two protein filaments — thick <strong>myosin</strong> and thin <strong>actin</strong> — organized into repeating units called <strong>sarcomeres</strong>. A regulatory protein, <strong>troponin</strong>, controls when they can interact.</p>
+          <ol class="steps">
+            <li><strong>Activation</strong> — a nerve impulse reaches the neuromuscular junction and triggers the sarcoplasmic reticulum to release <strong>calcium ions</strong> into the muscle cell.</li>
+            <li><strong>Contraction</strong> — calcium binds troponin, shifting tropomyosin out of the way so myosin can grip actin, forming cross-bridges. Using <strong>ATP</strong> as energy, myosin pulls the actin filaments inward, shortening the sarcomere.</li>
+            <li><strong>Recharging</strong> — ATP is resynthesized so myosin can keep cycling and maintain tension.</li>
+            <li><strong>Relaxation</strong> — once the nerve signal stops, calcium is pumped back into the sarcoplasmic reticulum, the actin–myosin link breaks, and the muscle relaxes.</li>
+          </ol>
+          <div class="terms">
+            <div class="term-chip"><b>Isometric</b><span>Muscle generates tension without changing length</span></div>
+            <div class="term-chip"><b>Concentric</b><span>Muscle shortens while contracting</span></div>
+            <div class="term-chip"><b>Eccentric</b><span>Muscle lengthens while still under tension</span></div>
+          </div>
+
+          <h4>The skeleton</h4>
+          <p>The human skeleton has two divisions:</p>
+          <ul>
+            <li><strong>Axial skeleton</strong> — skull, vertebral column, ribcage: the body's central core.</li>
+            <li><strong>Appendicular skeleton</strong> — limbs, shoulder girdle, pelvic girdle: everything attached to the core.</li>
+          </ul>
+
+          <h4>Joints</h4>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Joint type</th><th>Movement</th><th>Example</th></tr>
+            <tr><td><strong>Ball and socket</strong></td><td>Rotates in all directions</td><td>Shoulder, hip</td></tr>
+            <tr><td><strong>Hinge</strong></td><td>Opens/closes in one plane, like a door</td><td>Elbow, knee</td></tr>
+            <tr><td><strong>Condyloid</strong></td><td>Bends without rotating</td><td>Fingers, jaw</td></tr>
+            <tr><td><strong>Pivot</strong></td><td>One bone swivels within a ring of another</td><td>Neck, forearm (radius/ulna)</td></tr>
+            <tr><td><strong>Gliding</strong></td><td>Smooth surfaces slip past each other</td><td>Wrist</td></tr>
+            <tr><td><strong>Saddle</strong></td><td>Back-and-forth, side-to-side, no rotation</td><td>Base of the thumb</td></tr>
+          </table></div>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="5" id="u5-52">
+        <summary><div class="stitle"><span class="scode">5.2</span><h3>The reproductive system</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>The reproductive system enables sexual reproduction — producing gametes (sperm and eggs), and supporting fertilization and pregnancy.</p>
+
+          <h4>Gametogenesis</h4>
+          <p>The process of forming gametes through meiosis: <strong>spermatogenesis</strong> in males produces sperm; <strong>oogenesis</strong> in females produces eggs (ova).</p>
+
+          <h4>The menstrual cycle</h4>
+          <p>A monthly hormonal cycle controlled by a feedback loop between the brain and ovaries — rising and falling levels of FSH, LH, estrogen and progesterone regulate ovulation and prepare the uterine lining for a possible pregnancy.</p>
+
+          <h4>Fertilization &amp; pregnancy</h4>
+          <p>Fertilization is the fusion of sperm and egg to form a zygote, which implants in the uterus and develops through pregnancy (gestation).</p>
+
+          <h4>Contraceptive methods</h4>
+          <p>Contraceptives intentionally prevent pregnancy using hormones, devices, or procedures. They fall into two broad mechanisms:</p>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Mechanism</th><th>Examples</th></tr>
+            <tr><td><strong>Barrier</strong> — physically blocks sperm from reaching the egg</td><td>Male/female condom, diaphragm, cervical cap <em>(condoms are also the only method that protects against STIs)</em></td></tr>
+            <tr><td><strong>Non-barrier</strong> — hormonal or chemical</td><td>Oral pills (combined &amp; progesterone-only), IUD, implant, injection (Depo-Provera), emergency pill, vaginal ring, sterilization (tubal ligation / vasectomy)</td></tr>
+          </table></div>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Method</th><th>How it works</th><th>Note</th></tr>
+            <tr><td><strong>Oral contraceptive pill</strong></td><td>Hormones suppress ovulation, thicken cervical mucus, thin uterine lining</td><td>Highly effective when taken consistently</td></tr>
+            <tr><td><strong>IUD</strong></td><td>Device in the uterus prevents fertilization/implantation</td><td>Long-lasting, highly effective</td></tr>
+            <tr><td><strong>Implant / injection</strong></td><td>Releases progesterone steadily to block ovulation</td><td>Implant lasts ~3 years; injection ~ every 3 months</td></tr>
+            <tr><td><strong>Emergency pill ("post pill")</strong></td><td>High-dose hormone taken within 72 hours of unprotected sex</td><td>Not for routine/regular use</td></tr>
+            <tr><td><strong>Sterilization</strong></td><td>Tubal ligation (women) / vasectomy (men)</td><td>Permanent</td></tr>
+          </table></div>
+
+          <h4>Infertility</h4>
+          <p>Infertility can arise from causes in either partner — in women, factors include hormonal imbalance, blocked fallopian tubes, or age; in men, factors include low sperm count, hormonal problems, or urogenital infection. Lifestyle factors such as heavy drug or alcohol use can also contribute.</p>
+
+          <h4>Sexually transmitted infections (STIs) in Ethiopia</h4>
+          <p>More than 20 STIs are spread mainly through unprotected sex, caused by bacteria, viruses, or parasites.</p>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>STI</th><th>Cause</th><th>Key feature</th></tr>
+            <tr><td><strong>Bacterial vaginosis</strong></td><td>Bacterial overgrowth</td><td>Vaginal discharge/odor; raises infection risk</td></tr>
+            <tr><td><strong>Chlamydia</strong></td><td><em>Chlamydia trachomatis</em> (bacterium)</td><td>Often symptomless; spreads via vaginal fluid/semen</td></tr>
+            <tr><td><strong>Syphilis</strong></td><td><em>Treponema pallidum</em> (bacterium)</td><td>Progresses through 4 stages (primary → secondary → latent → tertiary) if untreated</td></tr>
+            <tr><td><strong>Gonorrhea</strong></td><td><em>Neisseria gonorrhoeae</em> (bacterium)</td><td>Painful urination, abnormal discharge; can be symptomless</td></tr>
+            <tr><td><strong>Chancroid</strong></td><td><em>Haemophilus ducreyi</em> (bacterium)</td><td>Painful genital ulcers</td></tr>
+            <tr><td><strong>Genital herpes</strong></td><td>Herpes simplex virus (HSV-1 / HSV-2)</td><td>Recurrent sores; HSV-1 also spreads via saliva</td></tr>
+            <tr><td><strong>Genital warts</strong></td><td>Human papillomavirus (HPV)</td><td>Raises cervical/throat cancer risk</td></tr>
+            <tr><td><strong>HIV/AIDS</strong></td><td>Human immunodeficiency virus</td><td>Attacks the immune system; spreads via sexual contact, blood, needle-sharing</td></tr>
+          </table></div>
+          <div class="callout note" data-unit="5"><span class="ctitle">Epidemiology in Ethiopia</span>Risk of STI transmission rises with: unprotected sex, multiple partners, alcohol/drug use (which lowers inhibition), needle-sharing during injection drug use, and young age — about half of new STIs occur in the 15–24 age group.</div>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="5" id="u5-53">
+        <summary><div class="stitle"><span class="scode">5.3</span><h3>Harmful traditional practices</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>Practices that damage physical or mental health and violate a person's right to live free from harm, discrimination, and violence.</p>
+          <ul>
+            <li><strong>Early marriage</strong> — forcing underage girls into marriage; linked to school dropout, early pregnancy, and long-term health risk.</li>
+            <li><strong>Abduction</strong> — kidnapping a girl to force marriage.</li>
+            <li><strong>Gender-based violence</strong> — unwanted sexual contact, abuse, or harassment, including within marriage.</li>
+            <li><strong>Female Genital Mutilation (FGM)</strong> — partial or total removal of external female genital organs.</li>
+          </ul>
+          <div class="callout ethio"><span class="ctitle">Ethiopian context</span>FGM alone accounts for roughly 73% of recorded harmful traditional practices in Ethiopia, with about half of all such practices involving mutilation of skin or body parts.</div>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="5" id="u5-54">
+        <summary><div class="stitle"><span class="scode">5.4</span><h3>Family planning</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p><strong>Family planning</strong> is the ability to anticipate and choose the number, timing, and spacing of children, considering a couple's financial, social, and emotional readiness.</p>
+          <h4>Risks of not planning</h4>
+          <ul>
+            <li>Greater maternal health risk during pregnancy, birth, and the postpartum period.</li>
+            <li>Both very early and very late motherhood raise the risk of complications.</li>
+            <li>Untreated pregnancy/childbirth complications can lead to disability or death.</li>
+          </ul>
+          <h4>Family planning actions &amp; services</h4>
+          <p>Includes preventing unwanted pregnancy, STI protection and counseling, waiting at least 6 months after a miscarriage/abortion before trying again, and access to birth control or assisted reproductive technology.</p>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="5" id="u5-55">
+        <summary><div class="stitle"><span class="scode">5.5</span><h3>Effects of alcohol, khat &amp; other drugs</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>Substance use is closely linked to STI transmission and unwanted pregnancy because it impairs judgment and increases risk-taking.</p>
+          <ul>
+            <li><strong>Alcohol</strong> — lowers inhibition and judgment, increasing the likelihood of risky sexual behavior.</li>
+            <li><strong>Khat (<em>Catha edulis</em>)</strong> — a shrub whose leaves are chewed as a stimulant; widely used across the Horn of Africa. It stimulates the central nervous system and is linked to insomnia, appetite loss, and increased risk-taking behavior.</li>
+            <li><strong>Other drugs</strong> — marijuana (cannabis), cocaine, and heroin further impair decision-making and judgment, compounding the risks above.</li>
+          </ul>
+        </div>
+      </details>
+
+    </section>
+
+    <div class="unit-end">
+      <h4>Unit 5 — Quick glossary</h4>
+      <div class="terms">
+        <div class="term-chip"><b>Myocardium</b><span>The cardiac muscle layer of the heart wall</span></div>
+        <div class="term-chip"><b>Sarcomere</b><span>The repeating contractile unit of a skeletal muscle fiber</span></div>
+        <div class="term-chip"><b>Gestation</b><span>The period of development from fertilization to birth</span></div>
+        <div class="term-chip"><b>Epidemiology</b><span>The study of how diseases spread and who is at risk</span></div>
+        <div class="term-chip"><b>FGM</b><span>Female genital mutilation — a harmful traditional practice</span></div>
+      </div>
+    </div>
+
+    <div class="unit-end" id="u5-quiz">
+      <h4>Unit 5 — Self-test</h4>
+
+      <div class="quiz-q">
+        <p class="qtext">1. Which muscle type is involuntary AND striated?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Skeletal</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Cardiac</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Smooth</button>
+        </div>
+        <div class="quiz-explain">Cardiac muscle is unique: striated like skeletal muscle, but involuntary like smooth muscle.</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">2. What ion triggers the binding of actin and myosin during muscle contraction?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Sodium (Na⁺)</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Calcium (Ca²⁺)</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Potassium (K⁺)</button>
+        </div>
+        <div class="quiz-explain">Calcium released from the sarcoplasmic reticulum binds troponin, exposing the myosin-binding sites on actin.</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">3. Which joint type allows movement in all directions, like the shoulder?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Ball and socket</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Hinge</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Gliding</button>
+        </div>
+        <div class="quiz-explain">The ball-and-socket joint (shoulder, hip) is the only joint type that permits rotation in every direction.</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">4. Which contraceptive method is the only one that also protects against STIs?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">IUD</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Oral contraceptive pill</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Condom</button>
+        </div>
+        <div class="quiz-explain">Hormonal and device-based methods prevent pregnancy but don't block infection transmission — only condoms do both.</div>
+      </div>
+
+    </div>
+
+    <div class="unit-divider" data-unit="6">
+      <div class="unit-tag">Unit Six</div>
+      <h2>Population &amp; natural resources</h2>
+      <p class="unit-intro">Zooming out from the individual to the population and the planet — how populations grow, how Ethiopia conserves its resources, and how human activity is reshaping the environment.</p>
+      <div class="unit-rule"></div>
+    </div>
+
+    <section class="section">
+
+      <details class="topic" data-unit="6" id="u6-61" open>
+        <summary><div class="stitle"><span class="scode">6.1</span><h3>Population ecology</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <h4>Size, density &amp; dispersal</h4>
+          <p><strong>Population size</strong> is the total number of individuals; <strong>density</strong> is how many individuals occupy a given area; <strong>dispersal pattern</strong> describes how individuals are spread — clumped, uniform, or random.</p>
+
+          <h4>Exponential vs. logistic growth</h4>
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th></th><th>Exponential growth</th><th>Logistic growth</th></tr>
+            <tr><td><strong>Conditions</strong></td><td>Unlimited resources, no limiting factors</td><td>Resources are limited; growth slows as the population approaches capacity</td></tr>
+            <tr><td><strong>Curve shape</strong></td><td>J-shaped</td><td>S-shaped</td></tr>
+            <tr><td><strong>Key term</strong></td><td>Growth rate (r)</td><td><strong>Carrying capacity (K)</strong> — the maximum population an environment can sustain</td></tr>
+          </table></div>
+          <div class="diagram">
+            <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="120" x2="300" y2="120" stroke="#5f7770" stroke-width="1"/>
+              <line x1="20" y1="120" x2="20" y2="10" stroke="#5f7770" stroke-width="1"/>
+              <path d="M20 118 C 100 116, 150 90, 170 10" stroke="#ffbe55" stroke-width="2.5" fill="none"/>
+              <path d="M20 118 C 100 100, 160 30, 300 25" stroke="#3ddc97" stroke-width="2.5" fill="none"/>
+              <line x1="20" y1="25" x2="300" y2="25" stroke="#3ddc97" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+              <text x="225" y="20" fill="#3ddc97" font-family="JetBrains Mono" font-size="9">K (carrying capacity)</text>
+              <text x="175" y="22" fill="#ffbe55" font-family="JetBrains Mono" font-size="9">exponential (J)</text>
+              <text x="190" y="55" fill="#3ddc97" font-family="JetBrains Mono" font-size="9">logistic (S)</text>
+            </svg>
+            <div class="cap">Exponential growth climbs unchecked; logistic growth levels off at carrying capacity (K)</div>
+          </div>
+
+          <h4>Demographic structure</h4>
+          <p>A population's age and sex distribution can be visualized as a <strong>population pyramid</strong> — broad-based pyramids indicate a young, rapidly growing population, while more rectangular shapes indicate a stable or aging one. As countries develop, they tend to move through a <strong>demographic transition</strong> from high birth/death rates to low birth/death rates.</p>
+
+          <h4>Population regulation</h4>
+          <p>Factors that control population size fall into two categories:</p>
+          <ul>
+            <li><strong>Density-dependent</strong> — their effect intensifies as population density rises (e.g. competition for food, predation, disease spread).</li>
+            <li><strong>Density-independent</strong> — affect the population regardless of its density (e.g. natural disasters, extreme weather).</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="6" id="u6-62">
+        <summary><div class="stitle"><span class="scode">6.2</span><h3>Natural resources</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Type</th><th>Definition</th><th>Examples</th></tr>
+            <tr><td><strong>Renewable</strong></td><td>Naturally replenished at a usable rate</td><td>Forests, water, wildlife, solar/wind energy</td></tr>
+            <tr><td><strong>Non-renewable</strong></td><td>Forms far slower than it's consumed; effectively finite on a human timescale</td><td>Minerals, fossil fuels, coal, natural gas</td></tr>
+          </table></div>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="6" id="u6-63">
+        <summary><div class="stitle"><span class="scode">6.3</span><h3>Conservation of natural resources in Ethiopia</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p><strong>Conservation</strong> is the wise use, protection, and management of natural resources so they remain available for future generations — balancing current public benefit against long-term sustainability.</p>
+          <p>Ethiopia's varied topography and climate give it rich natural resources — wildlife, plants, water, and soil — but rapid population growth, industrialization, and urbanization are putting growing pressure on them.</p>
+          <div class="callout ethio"><span class="ctitle">Ethiopian wildlife</span>Ethiopia hosts globally significant wildlife, including several endemic species — among them the Walia ibex, Stresemann's bushcrow, and the Ethiopian mountain chameleon — valued for ecological balance, genetic diversity, tourism, and the economy.</div>
+          <p>Conservation work in Ethiopia covers wildlife, plants, soil, and water — including soil and water conservation techniques (covered in more depth in section 6.6).</p>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="6" id="u6-64">
+        <summary><div class="stitle"><span class="scode">6.4</span><h3>Impact of traffic accidents on wild &amp; domestic animals</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p>Road networks cutting through habitats lead to animal deaths from vehicle collisions and fragment habitats into smaller, more isolated patches — making it harder for wildlife and livestock populations to move, feed, and breed safely.</p>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="6" id="u6-65">
+        <summary><div class="stitle"><span class="scode">6.5</span><h3>Impact of human activities on the environment</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <div class="tbl-wrap"><table class="dtable">
+            <tr><th>Issue</th><th>Cause</th><th>Effect</th></tr>
+            <tr><td><strong>Climate change &amp; global warming</strong></td><td>Greenhouse gas buildup (CO₂, methane, etc.)</td><td>Rising global temperatures, extreme weather, flooding</td></tr>
+            <tr><td><strong>Ozone layer depletion</strong></td><td>CFCs and other ozone-destroying chemicals</td><td>More UV radiation reaching Earth's surface</td></tr>
+            <tr><td><strong>Acid rain</strong></td><td>Sulfur dioxide &amp; nitrogen oxide emissions (industry, vehicles)</td><td>Damages forests, water bodies, and buildings</td></tr>
+            <tr><td><strong>Loss of biodiversity</strong></td><td>Habitat destruction, overexploitation</td><td>Species decline and extinction</td></tr>
+            <tr><td><strong>Toxic bioaccumulation</strong></td><td>Pollutants (e.g. pesticides) entering the food chain</td><td>Toxins concentrate at higher levels of the food chain</td></tr>
+            <tr><td><strong>Resource depletion</strong></td><td>Overpopulation, poor farming practices, overconsumption, industrialization</td><td>Resources used faster than they can replenish</td></tr>
+          </table></div>
+        </div>
+      </details>
+
+      <details class="topic" data-unit="6" id="u6-66">
+        <summary><div class="stitle"><span class="scode">6.6</span><h3>Indigenous conservation practices in Ethiopia</h3></div><span class="chev">+</span></summary>
+        <div class="topic-body">
+          <p><strong>Indigenous knowledge</strong> is the body of understanding a community builds over generations about its local environment — in Ethiopia, this includes knowledge of astronomy, seasonal prediction, traditional medicine, and resource conservation, developed through long observation of the sun, moon, stars, animal behavior, and weather patterns.</p>
+          <div class="callout ethio"><span class="ctitle">The Konso people — UNESCO World Heritage</span>The soil and water conservation system developed by the <strong>Konso people</strong> of southwestern Ethiopia has been practiced for more than <strong>400 years</strong> and is internationally recognized by UNESCO as a World Heritage site.</div>
+          <h4>Konso conservation techniques</h4>
+          <ul>
+            <li><strong>Terracing</strong> — dry-stone terraces built on hillsides that intercept runoff, reduce soil erosion, and create flat "saddles" for farming.</li>
+            <li><strong>Contour ploughing</strong> — ploughing along the natural contour of a hill (rather than straight up/down) to slow water runoff.</li>
+            <li><strong>Crop rotation</strong> — alternating different crops on the same land across seasons to maintain soil fertility.</li>
+            <li><strong>Mixed cropping</strong> — growing multiple crop species together.</li>
+            <li><strong>Surface mulching</strong> — covering soil with organic material to retain moisture and reduce erosion.</li>
+            <li><strong>Agroforestry</strong> — integrating trees with crops or livestock on the same land.</li>
+          </ul>
+        </div>
+      </details>
+
+    </section>
+
+    <div class="unit-end">
+      <h4>Unit 6 — Quick glossary</h4>
+      <div class="terms">
+        <div class="term-chip"><b>Carrying capacity (K)</b><span>The maximum population size an environment can sustainably support</span></div>
+        <div class="term-chip"><b>Demographic transition</b><span>A population's shift from high to low birth/death rates over time</span></div>
+        <div class="term-chip"><b>Bioaccumulation</b><span>Build-up of toxins at increasing concentration up the food chain</span></div>
+        <div class="term-chip"><b>Endemic species</b><span>A species found naturally in only one geographic area</span></div>
+        <div class="term-chip"><b>Indigenous knowledge</b><span>Environmental knowledge built by a local community over generations</span></div>
+      </div>
+    </div>
+
+    <div class="unit-end" id="u6-quiz">
+      <h4>Unit 6 — Self-test</h4>
+
+      <div class="quiz-q">
+        <p class="qtext">1. What shape is a logistic growth curve?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">J-shaped</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">S-shaped</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Straight line</button>
+        </div>
+        <div class="quiz-explain">Logistic growth slows as the population nears carrying capacity (K), producing a flattening S-curve — unlike the unchecked J-curve of exponential growth.</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">2. Which of these is a non-renewable natural resource?</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Forest</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Fresh water</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Coal</button>
+        </div>
+        <div class="quiz-explain">Coal forms over millions of years — far slower than it's consumed — making it non-renewable, unlike forests and water which naturally replenish.</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">3. The Konso people's indigenous conservation system is internationally recognized by:</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">WHO</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">UNESCO</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">FAO</button>
+        </div>
+        <div class="quiz-explain">The Konso Cultural Landscape, including its terracing system, is a UNESCO World Heritage Site.</div>
+      </div>
+
+      <div class="quiz-q">
+        <p class="qtext">4. Build-up of pesticide residue at increasing levels up the food chain is called:</p>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Biodiversity loss</button>
+          <button class="quiz-opt" data-correct="true" onclick="answerQuiz(this,true)">Toxic bioaccumulation</button>
+          <button class="quiz-opt" data-correct="false" onclick="answerQuiz(this,false)">Resource depletion</button>
+        </div>
+        <div class="quiz-explain">Bioaccumulation describes toxins concentrating further at each trophic level as one organism eats many of the level below.</div>
+      </div>
+
+    </div>
+
+
+    <footer>
+      <div class="fbrand">Made for Nuha — Grade 11 Biology</div>
+      <div>Condensed from Units 4–6 of the Grade 11 Biology syllabus for exam revision. Source: Ministry of Education, Federal Democratic Republic of Ethiopia — Biology Student Textbook, Grade 11.</div>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  // mobile nav
+  const sidenav = document.getElementById('sidenav');
+  document.getElementById('navToggle').addEventListener('click', ()=> sidenav.classList.add('open'));
+  document.getElementById('navClose').addEventListener('click', ()=> sidenav.classList.remove('open'));
+  sidenav.addEventListener('click', e=>{ if(e.target.classList.contains('navlink')) sidenav.classList.remove('open'); });
+
+  // scroll progress
+  const fill = document.getElementById('progressFill');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+    fill.style.width = Math.min(100, Math.max(0, scrolled*100)) + '%';
+  }
+  document.addEventListener('scroll', updateProgress);
+  updateProgress();
+
+  // scrollspy
+  const links = Array.from(document.querySelectorAll('.navlink'));
+  const targets = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      const id = '#' + entry.target.id;
+      const link = links.find(l => l.getAttribute('href') === id);
+      if(!link) return;
+      if(entry.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px' });
+  targets.forEach(t=> io.observe(t));
+
+  // quiz logic
+  function answerQuiz(btn, correct){
+    const group = btn.closest('.quiz-opts');
+    const buttons = group.querySelectorAll('.quiz-opt');
+    buttons.forEach(b=> b.disabled = true);
+    if(correct){ btn.classList.add('correct'); }
+    else{
+      btn.classList.add('wrong');
+      const correctBtn = Array.from(buttons).find(b=>b.dataset.correct === 'true');
+      if(correctBtn) correctBtn.classList.add('correct');
+    }
+    const explain = group.parentElement.querySelector('.quiz-explain');
+    if(explain) explain.classList.add('show');
+  }
+</script>
+</body>
+</html>
